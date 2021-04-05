@@ -3,6 +3,19 @@
 
     <h1>It's time to Glow Up Gorgeous</h1>
     <hr />
+
+    {% for h in hair %}
+    <div class="card">
+        <a href="/log/{{ hair.id }}">
+          <div class="card-content">
+            <p>Date: {{ hair.date }}</p>
+            <p>Log: {{ hair.log }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+
+
     <a href='/log/hairdiary/create_form'><button>HAIR DIARY</button></a>
     <a href='/log/skindiary/create_form'><button>SKIN DIARY</button></a>
     <footer>All Rights Reserved, &copy; 2021 Glow Up</footer>

@@ -8,14 +8,15 @@ class SkinDiary(models.Model):
     Log= models.TextField(max_length=750)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.Log
+
 class HairDiary(models.Model):
     Date= models.DateField()
     Log= models.TextField(max_length=750)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
- 
-
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.Log
 
 #need to add images into the models 
