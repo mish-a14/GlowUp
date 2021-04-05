@@ -18,3 +18,4 @@ class HairDiary(models.Model):
 def __str__(self):
     return self.name
 
+#need to add images into the models 

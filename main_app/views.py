@@ -29,16 +29,22 @@ def log(request):
   return render(request, 'log.html')
 
 
+
 def hairdiary(request):
   return render(request, 'diary.html')
 
 def skindiary(request):
   return render(request, 'diary.html')
 
+
+
+
+#HAIR DIARY FORM 
 #@login_required
 def create_form(request):
   return render(request, 'create_form.html')
 
+#hair diary create
 @login_required
 def submit_create_form(request):
   HairDiary.objects.create(
@@ -49,9 +55,24 @@ def submit_create_form(request):
   return redirect('/log')
 
 
+#hair diary update 
+#hair diary delete 
 
  
 
+
+
+#skin Diary FORM 
+#skin diary create
+#skin diary update
+#skin diary delete 
+#note: i have already imported both of the models at the top! 
+
+
+
+
+
+#LOG IN STUFF
 
 
 def form_valid(self, form):
