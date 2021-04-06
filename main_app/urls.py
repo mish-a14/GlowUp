@@ -32,7 +32,7 @@ urlpatterns = [
     #update hair diary step 1: deliver form to user
     path('log/<int:h_id>/edit/', views.edit_form),
     #update hair diary step 2: accept form from user
-    path('log/<int:h_id>/update/', views.update),
+    path('log/<int:h_id>/hairdiary/submit_update_form/', views.submit_update_form),
 
 
     #create forms for skin diary
@@ -41,7 +41,7 @@ urlpatterns = [
     #delete skin diary
 
     #PHOTOS 
-    path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),
-    
+   # path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),
+     
 ]
 

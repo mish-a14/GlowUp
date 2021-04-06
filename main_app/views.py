@@ -84,9 +84,14 @@ def edit_form(request, h_id):
   h = HairDiary.objects.get(id=h_id)
   return render(request, 'edit_form.html', {'h': h })
 
-#hair diary update
-def update(request, h_id):
-  return
+#hair diary submit of update form after user has made edit 
+def submit_update_form(request, h_id):
+  this_entry = HairDiary.objects.get(id=h_id)
+  this_entry.log = request.POST['log']
+  this_entry.date = request.POST['date']
+  this_entry.save()
+  print(this_entry)
+  return redirect('/log')
  
 
 

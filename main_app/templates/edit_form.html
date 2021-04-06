@@ -5,7 +5,7 @@
 
 <h1>It's time to Glow Up Gorgeous</h1>
 
-<form method='POST' action='/log/hairdiary/submit_create_form/'>
+<form method='POST' action='/log/{{ h.id }}/hairdiary/submit_update_form/'>
     {% csrf_token %}
     Date: <input type='date' name='date' autocomplete="off"/>
     Log: <input name='log' autocomplete="off" placeholder='{{ h.Log }}'/>
@@ -18,7 +18,7 @@
     <br>
     <br>
 
-    <button>Submit Log!</button>
+    <button>Update Log!</button>
 
 </form>
 
