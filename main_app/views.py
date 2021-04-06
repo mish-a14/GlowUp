@@ -3,7 +3,10 @@ from django.http import HttpResponse
 
 from django.views.generic import ListView, DetailView
 
-from .models import HairDiary, SkinDiary
+
+import uuid
+import boto3
+from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -77,7 +80,10 @@ def delete(request, h_id):
 
 #hair diary edit 
 def edit_form(request, h_id):
-  return
+  #get the particular hair post i'm editing by id
+  h = HairDiary.objects.get(id=h_id)
+  return render(request, 'edit_form.html', {'h': h })
+
 #hair diary update
 def update(request, h_id):
   return
@@ -92,6 +98,9 @@ def update(request, h_id):
 #note: i have already imported both of the models at the top! 
 
 
+#PHOTOS STUFF
+
+#def add_photo(request):
 
 
 

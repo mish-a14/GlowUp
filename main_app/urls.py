@@ -34,9 +34,14 @@ urlpatterns = [
     #update hair diary step 2: accept form from user
     path('log/<int:h_id>/update/', views.update),
 
+
     #create forms for skin diary
     #create skin diary 
     #update skin diary 
     #delete skin diary
+
+    #PHOTOS 
+    path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),
+    
 ]
 

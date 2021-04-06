@@ -8,7 +8,7 @@
 <form method='POST' action='/log/hairdiary/submit_create_form/'>
     {% csrf_token %}
     Date: <input type='date' name='date' autocomplete="off"/>
-    Log: <input name='log' autocomplete="off"/>
+    Log: <input name='log' autocomplete="off" placeholder='{{ h.Log }}'/>
 
     <br>
     Did you achieve your water intake goals this weeK? 
