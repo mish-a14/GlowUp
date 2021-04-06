@@ -15,16 +15,16 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="home/" class="left brand-logo">&nbsp;&nbsp;GlowUp</a></li>
+          <li><a href="/home/" class="left brand-logo">&nbsp;&nbsp;GlowUp</a></li>
         </ul>
         
         <ul class="right">
 
 
-          <li><a href="/supplements">SUPPLEMENTS</a></li>
-          <li><a href="/products">PRODUCTS</a></li>
-          <li><a href="/plan">AM/PM PLAN</a></li>
-          <li><a href="/log">MY LOG</a></li>
+          <li><a href="/supplements/">SUPPLEMENTS</a></li>
+          <li><a href="/products/">PRODUCTS</a></li>
+          <li><a href="/plan/">AM/PM PLAN</a></li>
+          <li><a href="/log/">MY LOG</a></li>
           
           {% if user.is_authenticated %}
           <li><a href="{% url 'logout' %}">Log Out</a></li>
