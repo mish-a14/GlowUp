@@ -69,9 +69,18 @@ def submit_create_form(request):
   return redirect('/log')
 
 
-#hair diary update 
 #hair diary delete 
+def delete(request, h_id):
+  h = HairDiary.objects.get(id=h_id)
+  h.delete()
+  return redirect('/log')
 
+#hair diary edit 
+def edit_form(request, h_id):
+  return
+#hair diary update
+def update(request, h_id):
+  return
  
 
 

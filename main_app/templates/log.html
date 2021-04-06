@@ -4,10 +4,11 @@
     <h1>It's time to Glow Up Gorgeous</h1>
     <hr />
 
-    <a href='/log/addlog'><button>Add Log</button></a>
+    <a href='/log/addlog'><button>Add Log</button>
 
     {% for h in hair %}
     <div class="card">
+        <div class='card-content'>
         <a href="/log/{{ h.id }}">
           <div class="card-content">
             <p>Date: {{ h.Date }}</p>
@@ -15,11 +16,16 @@
           </div>
         </a>
       </div>
+   
+    </a>
+      <a href='/log/{{ h.id }}/delete'><button>Delete</button></a>
+      <br>
+      <a href='/log/{{ h.id }}/edit'><button>Edit</button></a>
+    </div>
       {% endfor %}
 
 
 
-    <footer>All Rights Reserved, &copy; 2021 Glow Up</footer>
 
     
 {% endblock %}

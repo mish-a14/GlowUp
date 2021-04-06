@@ -25,10 +25,14 @@ urlpatterns = [
     #create forms for hair diary
     path('log/hairdiary/create_form/', views.create_form),
     path('log/hairdiary/submit_create_form/', views.submit_create_form),
+   
     #delete hair diary
-    #update hair diary
+    path('log/<int:h_id>/delete/', views.delete),
 
-
+    #update hair diary step 1: deliver form to user
+    path('log/<int:h_id>/edit/', views.edit_form),
+    #update hair diary step 2: accept form from user
+    path('log/<int:h_id>/update/', views.update),
 
     #create forms for skin diary
     #create skin diary 
