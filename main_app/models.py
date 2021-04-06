@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 class SkinDiary(models.Model):
     Date= models.DateField()
     Log= models.TextField(max_length=750)
+    Water = models.BooleanField()
+    Product = models.TextField(max_length=100)
+    Morning = models.BooleanField()
+    Night = models.BooleanField()
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -13,6 +17,10 @@ class SkinDiary(models.Model):
 class HairDiary(models.Model):
     Date= models.DateField()
     Log= models.TextField(max_length=750)
+    Water = models.BooleanField()
+    Product = models.TextField(max_length=100)
+    Morning = models.BooleanField()
+    Night = models.BooleanField()
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

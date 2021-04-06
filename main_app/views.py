@@ -51,6 +51,7 @@ def hairdiary(request):
 def skindiary(request):
   return render(request, 'diary.html')
 
+
 #page to add log that displays both HairDiary and Skin Diary buttons
 def add_log(request):
   return render(request, 'add_log.html')
@@ -87,8 +88,8 @@ def edit_form(request, h_id):
 #hair diary submit of update form after user has made edit 
 def submit_update_form(request, h_id):
   this_entry = HairDiary.objects.get(id=h_id)
-  this_entry.log = request.POST['log']
-  this_entry.date = request.POST['date']
+  this_entry.Log = request.POST['log']
+  this_entry.Date = request.POST['date']
   this_entry.save()
   print(this_entry)
   return redirect('/log')
@@ -97,7 +98,21 @@ def submit_update_form(request, h_id):
 
 
 #skin Diary FORM 
+def skin_create_form(request):
+  return render(request, 'skin_create_form.html')
+
 #skin diary create
+@login_required
+def submit_skin_form(request):
+  SkinDiary.objects.create(
+    Log=request.POST['log'],
+    Date=request.POST['date'],
+    user=request.user,
+  )
+  return redirect('/log')
+
+
+
 #skin diary update
 #skin diary delete 
 #note: i have already imported both of the models at the top! 

@@ -36,6 +36,9 @@ urlpatterns = [
 
 
     #create forms for skin diary
+    path('log/skindairy/skin_create_form/', views.skin_create_form),
+    path('log/skindiary/submit_create_form/', views.submit_skin_form),
+    
     #create skin diary 
     #update skin diary 
     #delete skin diary
