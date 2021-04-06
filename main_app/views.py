@@ -24,25 +24,22 @@ def plan(request):
 
 
 
-#@login_required
-#def log(request):
-  #hair = HairDiary.objects.all()
-  #skin = SkinDiary.objects.all()
-  #print(hair)
-  #return render(request, 'log.html', {'hair': hair})
-
 @login_required
 def log(request):
+  hair = HairDiary.objects.all()
   hair = HairDiary.objects.filter(user = request.user)
-  print(hair)
   #hair = request.user.hair_set.all()
   return render(request, 'log.html', { 'hair': hair })
 
 
-
+@login_required
 def hair_detail(request, hair_id):
   hair = HairDiary.objects.get(id=hair_id)
-  return render(request, 'log/hair_log_detail.html', { 'hair': hair})
+  print(hair)
+  print(request)
+  return render(request, 'hair_log_detail.html', { 'hair': hair})
+
+
 
 
 def hairdiary(request):
@@ -51,7 +48,9 @@ def hairdiary(request):
 def skindiary(request):
   return render(request, 'diary.html')
 
-
+#page to add log that displays both HairDiary and Skin Diary buttons
+def add_log(request):
+  return render(request, 'add_log.html')
 
 
 #HAIR DIARY FORM 
