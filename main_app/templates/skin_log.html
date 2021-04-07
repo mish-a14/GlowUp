@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>It's time to Glow Up Gorgeous</h1>
+    <hr />
+
+    <a href='/log/hairdiary/submit_create_form/'><button>Add Skin Log</button>
+
+      {% for s in skin %}
+    <div class="card">
+        <div class='card-content'>
+        <a href="/log/{{ s.id }}">
+          <div class="card-content">
+            SKIN
+            <p>Date: {{ s.Date }}</p>
+            <p>Log: {{ s.Log }}</p>
+            <p>Water: {{ s.Water }}</p>
+            <p>Product: {{ s.Product }}</p>
+            <p>Morning: {{ s.Morning }}</p>
+            <p>Night: {{ s.Night }}</p>
+          </div>
+        </a>
+      </div>
+   
+    </a>
+      <a href='/log/{{ s.id }}/delete'><button>Delete</button></a>
+      <br>
+      <a href='/log/{{ s.id }}/edit'><button>Edit</button></a>
+    </div>
+      {% endfor %}
+
+
+
+
+    
+{% endblock %}

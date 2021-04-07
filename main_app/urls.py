@@ -10,7 +10,8 @@ urlpatterns = [
 
 
     #this is the user's log show page
-    path('log/', views.log),
+    path('log/hair/', views.hair_log),
+    path('log/skin/', views.skin_log),
 
     #these are the paths to get to the forms for the user to enter thier diary input
     path('log/hairdiary/', views.hairdiary),
@@ -19,8 +20,6 @@ urlpatterns = [
     #this is the user's log' detail page of every log 
     path('log/<int:hair_id>/', views.hair_detail),
 
-    #path for adding a log for either hair or skin form
-    path('log/addlog/', views.add_log),
 
     #create forms for hair diary
     path('log/hairdiary/create_form/', views.create_form),
@@ -36,11 +35,17 @@ urlpatterns = [
 
 
     #create forms for skin diary
-    path('log/skindairy/skin_create_form/', views.skin_create_form),
+    path('log/skindiary/create_form/', views.skin_create_form),
     path('log/skindiary/submit_create_form/', views.submit_skin_form),
-    
-    #create skin diary 
+
+    #this is the user's log' detail page of every log 
+    path('log/<int:skin_id>/', views.skin_detail),
+
     #update skin diary 
+    path('log/<int:s_id>/edit/', views.skin_edit_form),
+    #update hair diary step 2: accept form from user
+    path('log/<int:s_id>/skindiary/skin_submit_update_form/', views.skin_submit_update_form),
+
     #delete skin diary
 
     #PHOTOS 

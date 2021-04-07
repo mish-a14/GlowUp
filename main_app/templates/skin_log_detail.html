@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>It's time to Glow Up Gorgeous</h1>
+<hr />
+
+
+
+<div class="card">
+  <div class='card-content'>
+    <a href="/log/{{ skin.id }}">
+      <div class="card-content">
+        <p>Date: {{ skin.Date }}</p>
+        <p>Log: {{ skin }}</p>
+        <p>Water: {{ skin.Water }}</p>
+        <p>Product: {{ skin.Product }}</p>
+        <p>Morning: {{ skin.Morning }}</p>
+        <p>Night: {{ skin.Night }}</p>
+      </div>
+    </a>
+</div>
+</div>
+
+
+{% endblock %}

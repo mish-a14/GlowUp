@@ -28,11 +28,14 @@ def plan(request):
 
 
 @login_required
-def log(request):
-  hair = HairDiary.objects.all()
+def hair_log(request):
   hair = HairDiary.objects.filter(user = request.user)
-  #hair = request.user.hair_set.all()
-  return render(request, 'log.html', { 'hair': hair })
+  return render(request, 'hair_log.html', { 'hair': hair})
+
+@login_required
+def skin_log(request):
+  skin = SkinDiary.objects.filter(user = request.user)
+  return render(request, 'skin_log.html', {'skin': skin})
 
 
 @login_required
@@ -40,7 +43,16 @@ def hair_detail(request, hair_id):
   hair = HairDiary.objects.get(id=hair_id)
   print(hair)
   print(request)
-  return render(request, 'hair_log_detail.html', { 'hair': hair})
+  return render(request, 'log_detail.html', { 'hair': hair})
+
+
+
+@login_required
+def skin_detail(request, skin_id):
+  skin = SkinDiary.objects.get(id=skin_id)
+  print(request)
+  print(skin)
+  return render(request, 'skin_log_detail.html', {'skin': skin})
 
 
 
@@ -53,12 +65,15 @@ def skindiary(request):
 
 
 #page to add log that displays both HairDiary and Skin Diary buttons
-def add_log(request):
-  return render(request, 'add_log.html')
+def add_hair_log(request):
+  return render(request, 'create_form.html')
+
+def add_skin_log(request):
+  return render(request, 'create_form.html')
 
 
 #HAIR DIARY FORM 
-#@login_required
+@login_required
 def create_form(request):
   return render(request, 'create_form.html')
 
@@ -68,16 +83,20 @@ def submit_create_form(request):
   HairDiary.objects.create(
     Log=request.POST['log'],
     Date=request.POST['date'],
+    Water = request.POST['water'], 
+    Product = request.POST['product'],
+    Morning = request.POST['morning'],
+    Night = request.POST['night'],
     user=request.user,
   )
-  return redirect('/log')
+  return redirect('/log/hair/')
 
 
 #hair diary delete 
 def delete(request, h_id):
   h = HairDiary.objects.get(id=h_id)
   h.delete()
-  return redirect('/log')
+  return redirect('/log/hair/')
 
 #hair diary edit 
 def edit_form(request, h_id):
@@ -90,9 +109,13 @@ def submit_update_form(request, h_id):
   this_entry = HairDiary.objects.get(id=h_id)
   this_entry.Log = request.POST['log']
   this_entry.Date = request.POST['date']
+  this_entry.Water = request.POST['water']
+  this_entry.Product = request.POST['product']
+  this_entry.Morning = request.POST['morning']
+  this_entry.Night = request.POST['night']
   this_entry.save()
   print(this_entry)
-  return redirect('/log')
+  return redirect('/log/hair/')
  
 
 
@@ -107,13 +130,35 @@ def submit_skin_form(request):
   SkinDiary.objects.create(
     Log=request.POST['log'],
     Date=request.POST['date'],
+    Water = request.POST['water'], 
+    Product = request.POST['product'],
+    Morning = request.POST['morning'],
+    Night = request.POST['night'],
     user=request.user,
   )
-  return redirect('/log')
-
+  return redirect('/log/skin/')
 
 
 #skin diary update
+def skin_edit_form(request, s_id):
+  s = SkinDiary.objects.get(id=s_id)
+  return render(request, 'skin_edit_form.html', {'s': s })
+
+
+def skin_submit_update_form(request, s_id):
+  this_entry = SkinDiary.objects.get(id=s_id)
+  this_entry.Log = request.POST['log']
+  this_entry.Date = request.POST['date']
+  this_entry.Water = request.POST['water']
+  this_entry.Product = request.POST['product']
+  this_entry.Morning = request.POST['morning']
+  this_entry.Night = request.POST['night']
+  this_entry.save()
+  print(this_entry)
+  return redirect('/log/skin/')
+
+
+
 #skin diary delete 
 #note: i have already imported both of the models at the top! 
 
