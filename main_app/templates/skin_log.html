@@ -1,35 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<<<<<<< HEAD
-<a href='/log/skindiary/create_form/'><button>Add Skin Log</button>
-
-{% for s in skin %}
-<div class="card">
-    <div class='card-content'>
-    <a href="/log/{{ s.id }}">
-      <div class="card-content">
-        Skin
-        <p>Date: {{ s.Date }}</p>
-        <p>Log: {{ s.Log }}</p>
-        <p>Water: {{ s.Water }}</p>
-        <p>Product: {{ s.Product }}</p>
-        <p>Morning: {{ s.Morning }}</p>
-        <p>Night: {{ s.Night }}</p>
-      </div>
-    </a>
-  </div>
-
-</a>
-<a href='/log/{{ s.id }}/delete'><button>Delete</button></a>
-<br>
-<a href='/log/{{ s.id }}/edit'><button>Edit</button></a>
-</div>
-{% endfor %}
-
-
-
-=======
     <h1>It's time to Glow Up Gorgeous</h1>
     <hr />
 
@@ -63,5 +34,4 @@
 
 
     
->>>>>>> 3ed301f2d51575ec2bf2acbde881fa13be9623ac
 {% endblock %}
