@@ -41,12 +41,13 @@ urlpatterns = [
     #this is the user's log' detail page of every log 
     path('log/<int:skin_id>/', views.skin_detail),
 
-    #update skin diary 
-    path('log/<int:s_id>/edit/', views.skin_edit_form),
+    #update skin diary: edit feature
+    path('log/skindiary/<int:s_id>/edit/', views.skin_edit_form),
     #update hair diary step 2: accept form from user
-    path('log/<int:s_id>/skindiary/skin_submit_update_form/', views.skin_submit_update_form),
+    path('log/skindiary/<int:s_id>/skin_submit_update_form/', views.skin_submit_update_form),
 
     #delete skin diary
+    path('log/skindiary/<int:s_id>/delete/', views.skin_delete),
 
     #PHOTOS 
    # path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),

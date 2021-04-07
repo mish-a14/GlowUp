@@ -157,10 +157,11 @@ def skin_submit_update_form(request, s_id):
   print(this_entry)
   return redirect('/log/skin/')
 
-
-
 #skin diary delete 
-#note: i have already imported both of the models at the top! 
+def skin_delete(request, s_id):
+  s = SkinDiary.objects.get(id=s_id)
+  s.delete()
+  return redirect('/log/skin/')
 
 
 #PHOTOS STUFF

@@ -5,11 +5,11 @@
 
 <h1>It's time to Glow Up Gorgeous</h1>
 
-<form method='POST' action='/log/skindiary/{{ s.id }}/skin_submit_update_form/'>
+<form method='POST' action='/log/skindiary/submit_create_form/'>
     {% csrf_token %}
     Date: <input type='date' name='date' autocomplete="off"/>
-    Log: <input name='log' autocomplete="off" placeholder='{{ s.Log }}'/>
-    Did I achieve my hydration goals this week? 
+    Log: <input name='log' autocomplete="off"/>
+     Did I achieve my hydration goals this week? 
     <input name='water' autocomplete="off"/>
     What was my favourite product this week?
     <input name='product' autocomplete="off"/>
@@ -17,7 +17,8 @@
     <input name='morning' autocomplete="off"/>
     Did I meet my PM routines this week? 
     <input name='night' autocomplete="off"/>
-    <button>Update Log!</button>
+
+    <button>Submit Log!</button>
 
 </form>
 
