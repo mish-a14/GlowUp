@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('supplements/', views.supplements),
     path('products/', views.products),
     path('plan/', views.plan),
@@ -40,7 +40,7 @@ urlpatterns = [
     path('log/skindiary/submit_create_form/', views.submit_skin_form),
 
     #this is the user's log' detail page of every log 
-    path('log/<int:skin_id>/', views.skin_detail),
+    path('log/skin/<int:skin_id>/', views.skin_detail),
 
     #update skin diary: edit feature
     path('log/skindiary/<int:s_id>/edit/', views.skin_edit_form),
