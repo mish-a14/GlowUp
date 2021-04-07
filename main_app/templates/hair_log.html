@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>It's time to Glow Up Gorgeous</h1>
+    <hr />
+
+    <a href='/log/hairdiary/create_form/'><button>Add Hair Log</button>
+
+    {% for h in hair %}
+    <div class="card">
+        <div class='card-content'>
+        <a href="/log/{{ h.id }}">
+          <div class="card-content">
+            Hair
+            <p>Date: {{ h.Date }}</p>
+            <p>Log: {{ h.Log }}</p>
+            <p>Water: {{ h.Water }}</p>
+            <p>Product: {{ h.Product }}</p>
+            <p>Morning: {{ h.Morning }}</p>
+            <p>Night: {{ h.Night }}</p>
+          </div>
+        </a>
+      </div>
+    </a>
+    <a href='/log/{{ h.id }}/delete'><button>Delete</button></a>
+    <br>
+    <a href='/log/{{ h.id }}/edit'><button>Edit</button></a>
+  </div>
+    {% endfor %}
+
+    
+{% endblock %}
