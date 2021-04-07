@@ -87,6 +87,7 @@ def submit_create_form(request):
     Product = request.POST['product'],
     Morning = request.POST['morning'],
     Night = request.POST['night'],
+    Supplements= request.POST['supplements'],
     user=request.user,
   )
   return redirect('/log/hair/')
@@ -113,6 +114,7 @@ def submit_update_form(request, h_id):
   this_entry.Product = request.POST['product']
   this_entry.Morning = request.POST['morning']
   this_entry.Night = request.POST['night']
+  this_entry.Supplements = request.POST['supplements']
   this_entry.save()
   print(this_entry)
   return redirect('/log/hair/')
@@ -134,6 +136,7 @@ def submit_skin_form(request):
     Product = request.POST['product'],
     Morning = request.POST['morning'],
     Night = request.POST['night'],
+    Supplements= request.POST['supplements'],
     user=request.user,
   )
   return redirect('/log/skin/')
@@ -153,6 +156,7 @@ def skin_submit_update_form(request, s_id):
   this_entry.Product = request.POST['product']
   this_entry.Morning = request.POST['morning']
   this_entry.Night = request.POST['night']
+  this_entry.Supplements = request.POST['supplements']
   this_entry.save()
   print(this_entry)
   return redirect('/log/skin/')

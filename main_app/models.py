@@ -21,6 +21,7 @@ class HairDiary(models.Model):
     Product = models.TextField(max_length=100)
     Morning = models.BooleanField()
     Night = models.BooleanField()
+    Supplements = models.BooleanField()
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
