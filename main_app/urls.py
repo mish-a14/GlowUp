@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('plan/', views.plan),
     path('accounts/signup/', views.signup, name='signup'),
 
 
@@ -20,6 +19,11 @@ urlpatterns = [
     path('products/add/form/', views.products_add),
     path('products/submit/', views.products_submit),
     path('products/<int:p_id>/delete/', views.products_delete),
+
+    #AM/PM Routines
+    path('routine/', views.routine),
+    path('routine/add/form/', views.routine_add), 
+    path('routine/submit/', views.routine_submit), 
 
 
 

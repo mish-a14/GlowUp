@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<a href='/routine/add/form/'><button>Add Routine</button></a>
+
+{% for r in routine %}
+
+<p>Name: {{ r.Cleanser }}</p>
+
+{% endfor %}
+
+{% endblock %}

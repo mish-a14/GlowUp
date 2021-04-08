@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+Hey Gorgeous! Fill out your AM Plan below 
+<form method='POST' action='/routine/submit/'>
+    {% csrf_token %}
+    Cleanser: <input name='cleanser' autocomplete="off"/>
+    Toner: <input name='toner' autocomplete="off"/>
+    Exfoliator: <input name='exfoliator' autocomplete="off"/>
+    Serum: <input name='serum' autocomplete="off"/>
+    Moisturizer: <input name='moisturizer' autocomplete="off"/>
+    Eye Cream: <input name='eye' autocomplete="off"/>
+    Oil: <input name='oil' autocomplete="off"/>
+    Sunscreen: <input name='sunscreen' autocomplete="off"/>
+    Facial Peel: <input name='peel' autocomplete="off"/>
+    Mask: <input name='mask' autocomplete="off"/>
+    Mist: <input name='mist' autocomplete="off"/>
+    <br>
+    <button type='submit'>Add AM Routine</button>
+
+</form>
+
+Hey Gorgeous! Fill out your PM Plan below 
+<form method='POST' action='/routine/submit/'>
+    {% csrf_token %}
+    Cleanser: <input name='cleanser' autocomplete="off"/>
+    Toner: <input name='toner' autocomplete="off"/>
+    Exfoliator: <input name='exfoliator' autocomplete="off"/>
+    Serum: <input name='serum' autocomplete="off"/>
+    Moisturizer: <input name='moisturizer' autocomplete="off"/>
+    Eye Cream: <input name='eye' autocomplete="off"/>
+    Oil: <input name='oil' autocomplete="off"/>
+    Sunscreen: <input name='sunscreen' autocomplete="off"/>
+    Facial Peel: <input name='peel' autocomplete="off"/>
+    Mist: <input name='mist' autocomplete="off"/>
+    Mask: <input name='mask' autocomplete="off"/>
+    <br>
+    <button type='submit'>Add PM Routine</button>
+
+</form>
+
+
+
+
+{% endblock %}
