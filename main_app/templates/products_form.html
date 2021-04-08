@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="create-contain">
+    <div class="form-create">
+
 <form method='POST' action='/products/submit/'>
     {% csrf_token %}
-    Name: <input name='name' autocomplete="off"/>
-    Brand: <input name='brand' autocomplete="off"/>
-    Price: $<input name='price' autocomplete="off" placeholder="0.00"/>
-    <br>
-    <button>Add Product</button>
+    <p>Name:</p> <input name='name' autocomplete="off"/>
+    <br />
+    <p>Brand:</p> <input name='brand' autocomplete="off"/>
+    <br />
+    <p>Price:</p> <input name='price' autocomplete="off" placeholder="0.00"/>
+    <br />
+    <button class="form-btn">Add Product</button>
 
 </form>
+
+    </div>
+</div>
     
 {% endblock %}

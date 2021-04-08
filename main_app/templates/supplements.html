@@ -8,8 +8,8 @@
         <div class="supp-flex">   
         {% for p in pill %}
         <div class="supplements-info">
-                <p>Name: {{ p.Name }}</p>
-                <p>Price: ${{ p.Price }}</p>
+                <p>Name: <span>{{ p.Name }}</span></p>
+                <p>Price: <span>${{ p.Price }}</span></p>
                 <a href='/supplements/{{ p.id }}/delete/'><button class="supp-delete">Delete</button></a>
         </div>
 {% endfor %}
