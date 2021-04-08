@@ -53,6 +53,7 @@ def supplements_delete(request, p_id):
 
 # PRODUCTS FORM
 
+
 def products(request):
     products = Products.objects.filter(user=request.user)
     return render(request, 'products.html', {'products': products})
@@ -78,39 +79,8 @@ def products_delete(request, p_id):
     return redirect('/products/')
 
 
-
-#AM/PM ROUTINES 
-
-def routine(request):
-    routine= Routine.objects.filter(user=request.user)
-    return render(request, 'routine.html', {'routine': routine})
-
-
-def routine_add(request):
-    return render(request, 'routine_form.html')
-
-def routine_submit(request):
-    Routine.objects.create(
-        Cleanser=request.POST['cleanser'],
-        Toner=request.POST['toner'],
-        Serum=request.POST['serum'],
-        Moisturizer=request.POST['moisturizer'],
-        Mist=request.POST['mist'],
-        Mask=request.POST['mask'],
-        Eye=request.POST['eye'],
-        Sunscreen=request.POST['sunscreen'],
-        Oil=request.POST['oil'],
-        Exfoliatior=request.POST['exfoliator'],
-        Peel=request.POST['peel'],
-        Pill=request.user,
-        Prodsucts=request.user,
-        user=request.user,
-    )
-    return redirect('/routine/')
-
-
-
-
+def plan(request):
+    return render(request, 'about.html')
 
 
 @login_required
@@ -122,7 +92,8 @@ def hair_log(request):
 @login_required
 def skin_log(request):
     skin = SkinDiary.objects.filter(user=request.user).order_by('-Date')
-    return render(request, 'skin_log.html', {'skin': skin})
+    photo = Skin_Photo.objects.filter(skin_id=skin)
+    return render(request, 'skin_log.html', {'skin': skin, 'photo': photo})
 
 
 @login_required
@@ -247,17 +218,18 @@ def submit_skin_form(request):
     return redirect('/log/skin/')
 
 
+<<<<<<< HEAD
 def skin_edit_form(request, skin_id):
-    # get the particular hair post i'm editing by id
     s = SkinDiary.objects.get(id=skin_id)
     return render(request, 'skin_edit_form.html', {'s': s})
 
 # skin diary update
-
-
+=======
+# skin diary update
 def skin_edit_form(request, s_id):
     s = SkinDiary.objects.get(id=s_id)
     return render(request, 'skin_edit_form.html', {'s': s})
+>>>>>>> 79e8bd61022e616335bda75eeb1494bdd612d76a
 
 
 def skin_submit_update_form(request, s_id):
