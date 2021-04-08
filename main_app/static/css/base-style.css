@@ -1,156 +1,173 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* overflow-x: hidden; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* NavBar section */
 /* NavBar section */
 /* NavBar section */
 
-body{
-    background-color: #faebe4d0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #333333;
-    /* background-image: url("https://www.tucsonchefmaggie.com/sites/default/files/strong-healthy-hair-nails-skin.jpg");
+body {
+  background-color: #faebe4d0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #333333;
+  /* background-image: url("https://www.tucsonchefmaggie.com/sites/default/files/strong-healthy-hair-nails-skin.jpg");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position-y: 8vh; */
 }
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 8vh;
-    /* bordeR: 2px red solid; */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  /* bordeR: 2px red solid; */
 }
 
-.nav-links{
-    position: absolute;
-    right: 0;
-    height: 94vh;
-    top: 8vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in;
-    z-index: 10;
-    display: none;
-    width: 50%;
-}
-
-nav a{
-    text-decoration: none;
-    color: black;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-nav .logo{
-    font-size: 25px;
-    margin: 0 30px;
-}
-
-.burger > div{
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    margin: 5px;
-    transition: 0.2s ease;
-}
-
-.burger{
-    margin: 0 50px;
-}
-
-.exit .line1{
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.exit .line2{
-    opacity: 0;
-}
-
-.exit .line3{
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.nav-active{
-    transform: translateX(0%);
-    display: inherit;
-    background-color: #E1EADF;
-}
-
-.info{
-    /* border: 2px solid red; */
-    text-align: left;
-    margin: 50px 30px 10px 30px;
-    position: relative;
-}
-
-
-h4{
-    width: 50%;
-}
-
-h6{
-    width:50%;
-    opacity: 40%;
-}
-
-.textImage{
-    position: absolute;
-    width: 40%; 
-    height: auto;
-    margin-left: 50%;
-    border-radius: 20px;
-}
-
-
-/* slide images  */
-/* slide images */
-/* slide images */
-* {box-sizing:border-box}
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  
-}
-/* Hide the images by default */
-.mySlides {
+.nav-links {
+  position: absolute;
+  right: 0;
+  height: 94vh;
+  top: 8vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in;
+  z-index: 10;
   display: none;
+  width: 50%;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+nav .logo {
+  font-size: 25px;
+  margin: 0 30px;
+}
+
+.burger > div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px;
+  transition: 0.2s ease;
+}
+
+.burger {
+  margin: 0 50px;
+}
+
+.exit .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.exit .line2 {
+  opacity: 0;
+}
+
+.exit .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-active {
+  transform: translateX(0%);
+  display: inherit;
+  background-color: #e1eadf;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.action {
+  margin: 100px 1px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.hair-and-skin {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 10px;
+  align-items: center;
+}
+
+.achieve {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 10px;
+  align-items: center;
+}
+
+.routine {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 10px;
+  align-items: center;
+}
+
+.info img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
   object-fit: cover;
 }
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
+
+.info-text {
+  padding: 30px;
+}
+
+.info h4 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+.info h6 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  height: 40vh;
+}
+
+.mySlides img {
+  object-fit: cover;
   position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  top: 0;
+  left: 0;
+  height: 40vh;
+  width: 100%;
 }
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-/* Caption text */
+
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -160,28 +177,7 @@ h6{
   width: 100%;
   text-align: center;
 }
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-/* The dots/bullets/indicators */
-/* .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-} */
-.active, .dot:hover {
-  background-color: #717171;
-}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -190,38 +186,18 @@ h6{
   animation-duration: 1.5s;
 }
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-
-
-
-
-
-/* Body section */
-/* Body section */
-/* Body section */
-
-
-
-
-/* Footer section */
-/* Footer section */
-/* Footer section */
-
-.page-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #E1EADF;
-}
-.page-footer li{
-    list-style-type: none;
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
