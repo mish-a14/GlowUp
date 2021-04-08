@@ -20,10 +20,10 @@ urlpatterns = [
     path('products/submit/', views.products_submit),
     path('products/<int:p_id>/delete/', views.products_delete),
 
-    #AM/PM Routines
-    path('routine/', views.routine),
-    path('routine/add/form/', views.routine_add), 
-    path('routine/submit/', views.routine_submit), 
+    #     #AM/PM Routines
+    #     path('routine/', views.routine),
+    #     path('routine/add/form/', views.routine_add),
+    #     path('routine/submit/', views.routine_submit),
 
 
 

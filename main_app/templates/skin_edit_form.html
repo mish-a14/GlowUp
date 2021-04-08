@@ -1,51 +1,53 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
 
-<h1>It's time to Glow Up Gorgeous</h1>
+<div class="create-contain">
+
+<div class="form-create">
 
 <form method='POST' action='/log/skindiary/{{ s.id }}/skin_submit_update_form/'>
     {% csrf_token %}
-    Date: <input type='date' name='date' autocomplete="off"/>
-    Log: <input name='log' autocomplete="off" value='{{ s.Log }}'/>
-    Date: <input type='date' name='date' autocomplete="off"/>
+    <p>Date:</p> <input type='date' name='date' autocomplete="off"/>
     <br />
-    Log: <input name='log' autocomplete="off"/>
+    <p>Log:</p> <input name='log' autocomplete="off" value='{{ s.Log }}'/>
     <br />
     <label for="water">Did I achieve my hydration goals this week?</label>
+    <br />
     <select name='water'>
         <option value="True">Quenched aF!</option>
         <option value="False">Oops, not this week.</option>
     </select>
     <br />
     <label for="product">What was my favourite product this week?</label>
+    <br />
     <input name='product' autocomplete="off"/>
     <br />
     <label for="morning">Did I meet my AM routines this week?</label>
+    <br />
     <select name='morning'>
         <option value="True">Bet!</option>
         <option value="False">Maybe next week...</option>
     </select>
     <br />
     <label for="night">Did I meet my PM routines this week</label>
+    <br />
     <select name='night'>
         <option value="True">Absolutely!</option>
         <option value="False">I forgot some nights...</option>
     </select>
     <br />
     <label for="supplements">Did I meet my supplement intakes this week?</label> 
+    <br />
     <select name='supplements'>
         <option value="True">Ofc!</option>
         <option value="False">Not a good supplements week for me....</option>
     </select>
     <br />
 
-
-    <button>Update Log!</button>
-
+    <button class="form-btn">Update Log</button>
 </form>
 
-
+</div>
+</div>
+    
 {% endblock %}
-
