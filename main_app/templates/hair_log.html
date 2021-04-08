@@ -11,16 +11,18 @@
   <div class="diary-card-contain">
       {% for h in hair %}
       {% for photo in h.hair_photo_set.all %}
+      <a href="/log/hair/{{ h.id }}" class="date-link">
       <div class="diary-cards">
-        <a href="/log/hair/{{ h.id }}" class="date-link">
+        
       <img src="{{photo.url}}">
     {% empty %}
       <div>No Photos Uploaded</div>
     {% endfor %}
             <p class="date">{{ h.Date }}</p>
-        </a>
+        
       </div>
       {% endfor %}
+    </a>
     </div>
 
 </div>  
