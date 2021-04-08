@@ -12,11 +12,11 @@
       {% for s in skin %}
       {% for photo in s.skin_photo_set.all %}
       <div class="diary-cards">
+        <a href="/log/skin/{{ s.id }}" class="date-link">
       <img src="{{photo.url}}">
     {% empty %}
       <div>No Photos Uploaded</div>
     {% endfor %}
-        <a href="/log/skin/{{ s.id }}" class="date-link">
             <p class="date">{{ s.Date }}</p>
         </a>
       </div>

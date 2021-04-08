@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -13,11 +16,6 @@ S3_BASE_URL = 'https://s3-accesspoint.ca-central-1.amazonaws.com/'
 BUCKET = 'glowup'
 
 
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-
-
 S3_BASE_URL = 'https://s3.ca-central-1.amazonaws.com/'
 BUCKET = 'glowup'
 
@@ -28,15 +26,15 @@ def home(request):
     return render(request, 'home.html')
 
 
-
-
-#SUPPLEMENTS FORM STUFF
+# SUPPLEMENTS FORM STUFF
 def supplements(request):
     pill = Pill.objects.filter(user=request.user)
     return render(request, 'supplements.html', {'pill': pill})
 
+
 def supplements_form(request):
-    return render(request, 'add_supplements.html')    
+    return render(request, 'add_supplements.html')
+
 
 def submit_form(request):
     Pill.objects.create(
@@ -46,23 +44,24 @@ def submit_form(request):
     )
     return redirect('/supplements/')
 
+
 def supplements_delete(request, p_id):
     p = Pill.objects.get(id=p_id)
     p.delete()
     return redirect('/supplements/')
 
 
-
-
-#PRODUCTS FORM
+# PRODUCTS FORM
 
 
 def products(request):
     products = Products.objects.filter(user=request.user)
     return render(request, 'products.html', {'products': products})
 
+
 def products_add(request):
     return render(request, 'products_form.html')
+
 
 def products_submit(request):
     Products.objects.create(
@@ -73,13 +72,11 @@ def products_submit(request):
     )
     return redirect('/products/')
 
+
 def products_delete(request, p_id):
     p = Products.objects.get(id=p_id)
     p.delete()
     return redirect('/products/')
-
-
-
 
 
 def plan(request):
@@ -157,12 +154,16 @@ def delete(request, h_id):
     return redirect('/log/hair/')
 
 # hair diary edit
+
+
 def edit_form(request, h_id):
     # get the particular hair post i'm editing by id
     h = HairDiary.objects.get(id=h_id)
     return render(request, 'edit_form.html', {'h': h})
 
 # hair diary submit of update form after user has made edit
+
+
 def submit_update_form(request, h_id):
     this_entry = HairDiary.objects.get(id=h_id)
     this_entry.Log = request.POST['log']

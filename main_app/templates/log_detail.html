@@ -1,44 +1,41 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>It's time to Glow Up Gorgeous</h1>
-<hr />
+<div class="detail-contain">
 
-
-<div class="card">
-  <div class='card-content'>
-      <div class="card-content">
-
-        
+  <div class="detail-card">
+    <div class="detail-photos">
       {% for photo in hair.hair_photo_set.all %}
-        <img class="responsive-img card-panel" src="{{photo.url}}">
+        <img src="{{photo.url}}">
       {% empty %}
-        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+        <div>No Photos Uploaded</div>
+        <form action="/log/hair/{{ hair.id }}/add_hair_photo/" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <input type="file" name="photo-file">
+          <br />
+          <input type="submit" value="Upload Photo" class="detail-btn">
+        </form>
       {% endfor %}
-        
+    </div> 
+    
+    
 
-      <form action="/log/hair/{{ hair.id }}/add_hair_photo/" enctype="multipart/form-data" method="POST" class="card-panel">
-        {% csrf_token %}
-        <input type="file" name="photo-file">
-        <br><br>
-        <input type="submit" class="btn" value="Upload Photo">
-      </form>
-
-        <p>Date: {{ hair.Date }}</p>
-        <p>Log: {{ hair.Log}}</p>
-        <p>Water: {{ hair.Water }}</p>
-        <p>Product: {{ hair.Product }}</p>
-        <p>Morning: {{ hair.Morning }}</p>
-        <p>Night: {{ hair.Night }}</p>
-        <p>Supplements: {{ hair.Supplements }}</p>
+      <div class="detail-info">
+        <div class="detail-text">
+        <p>Date: <span>{{ hair.Date }}</span></p>
+        <p>Water: <span>{{ hair.Water }}</span></p>
+        <p>Product: <span>{{ hair.Product }}</span></p>
+        <p>Morning: <span>{{ hair.Morning }}</span></p>
+        <p>Night: <span>{{ hair.Night }}</span></p>
+        <p>Supplements: <span>{{ hair.Supplements }}</span></p>
+        <p>Log: <span>{{ hair.Log}}</span></p>
         <br>
-        <a href='/log/{{ hair.id }}/edit'><button>Edit</button></a>
-        <a href='/log/{{ hair.id }}/delete'><button>Delete</button></a>
+        <a href='/log/{{ hair.id }}/edit'><button class="detail-edit">Edit</button></a>
+        <a href='/log/{{ hair.id }}/delete'><button class="detail-delete">Delete</button></a>
+        </div>
       </div>
   </div>
+
 </div>
-
-
 
 {% endblock %}

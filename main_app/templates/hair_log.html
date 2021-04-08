@@ -4,24 +4,25 @@
 <div class="diary-contain">
 
   <div class="diary-blurb">
-    <h1>It's time to Glow Up Gorgeous</h1>
-    <a href='/log/hairdiary/create_form/'><button class="add-log">Add Hair Log</button>
+    <h2>It's time to Glow Up, Gorgeous</h2>
+    <a href='/log/hairdiary/create_form/'><button class="add-log">Add Hair Log</button></a>
   </div>
 
   <div class="diary-card-contain">
-    {% for h in hair %}
-    {% for photo in h.hair_photo_set.all %}
-    <div class="diary-cards">
-    <img src="{{photo.url}}">
+      {% for h in hair %}
+      {% for photo in h.hair_photo_set.all %}
+      <div class="diary-cards">
+        <a href="/log/hair/{{ h.id }}" class="date-link">
+      <img src="{{photo.url}}">
     {% empty %}
       <div>No Photos Uploaded</div>
     {% endfor %}
-        <a href="/log/hair/{{ h.id }}/" class="date-link">
-            <p class="date">Date: {{ h.Date }}</p>
+            <p class="date">{{ h.Date }}</p>
         </a>
-  </div>
-    {% endfor %}
-</div>
-</div>
+      </div>
+      {% endfor %}
+    </div>
 
+</div>  
+  
 {% endblock %}

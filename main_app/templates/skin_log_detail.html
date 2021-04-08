@@ -1,34 +1,41 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>It's time to Glow Up Gorgeous</h1>
+<div class="detail-contain">
 
+  <div class="detail-card">
+    <div class="detail-photos">
       {% for photo in skin.skin_photo_set.all %}
-        <img class="responsive-img card-panel" src="{{photo.url}}">
+        <img src="{{photo.url}}">
       {% empty %}
-        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-      {% endfor %}
-
-
-        <form action="/log/skin/{{ skin.id }}/add_skin_photo/" enctype="multipart/form-data" method="POST" class="card-panel">
+        <div>No Photos Uploaded</div>
+        <form action="/log/skin/{{ skin.id }}/add_skin_photo/" enctype="multipart/form-data" method="POST">
           {% csrf_token %}
           <input type="file" name="photo-file">
-          <br><br>
-          <input type="submit" class="btn" value="Upload Photo">
+          <br />
+          <input type="submit" value="Upload Photo" class="detail-btn">
         </form>
+      {% endfor %}
+    </div> 
+    
+    
 
-        <p>Date: {{ skin.Date }}</p>
-        <p>Log: {{ skin }}</p>
-        <p>Water: {{ skin.Water }}</p>
-        <p>Product: {{ skin.Product }}</p>
-        <p>Morning: {{ skin.Morning }}</p>
-        <p>Night: {{ skin.Night }}</p>
-        <p>Supplements: {{ skin.Supplements }}</p>
-        <br />
-        <a href='/log/skindiary/{{ skin.id }}/edit/'><button>Edit</button></a>
-        <a href='/log/skindiary/{{ skin.id }}/delete/'><button>Delete</button></a>
+      <div class="detail-info">
+        <div class="detail-text">
+        <p>Date: <span>{{ skin.Date }}</span></p>
+        <p>Water: <span>{{ skin.Water }}</span></p>
+        <p>Product: <span>{{ skin.Product }}</span></p>
+        <p>Morning: <span>{{ skin.Morning }}</span></p>
+        <p>Night: <span>{{ skin.Night }}</span></p>
+        <p>Supplements: <span>{{ skin.Supplements }}</span></p>
+        <p>Log: <span>{{ skin.Log}}</span></p>
+        <br>
+        <a href='/log/{{ skin.id }}/edit'><button class="detail-edit">Edit</button></a>
+        <a href='/log/{{ skin.id }}/delete'><button class="detail-delete">Delete</button></a>
+        </div>
       </div>
+  </div>
+
 </div>
-</div>
+
 {% endblock %}
