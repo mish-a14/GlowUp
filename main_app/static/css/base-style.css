@@ -61,6 +61,10 @@ nav .logo {
   margin: 0 50px;
 }
 
+.burger:hover {
+  cursor: pointer;
+}
+
 .exit .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -243,6 +247,77 @@ nav .logo {
   font-weight: bold;
 }
 
+.sub-field:hover {
+  cursor: pointer;
+}
+
+/* LOG PAGES */
+
+.diary-contain {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diary-blurb {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.diary-blurb h2 {
+  border-bottom: 1px solid black;
+}
+
+.add-log {
+  margin: 20px 0px;
+  font-size: 18px;
+  padding: 5px;
+  background-color: #e59573;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.add-log:hover {
+  cursor: pointer;
+}
+
+.diary-cards {
+  height: 300px;
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(255, 245, 245);
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.diary-cards img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.date {
+  margin: 15px 0px;
+}
+
+.date-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 950px) {
@@ -256,5 +331,15 @@ nav .logo {
     width: 70%;
     flex-wrap: nowrap;
     text-align: left;
+  }
+
+  .diary-card-contain {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .diary-cards {
+    margin: 50px;
   }
 }

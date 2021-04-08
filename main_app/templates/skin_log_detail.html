@@ -3,12 +3,6 @@
 {% block content %}
 
 <h1>It's time to Glow Up Gorgeous</h1>
-<hr />
-
-<div class="card">
-  <div class='card-content'>
-      <div class="card-content">
-
 
       {% for photo in skin.skin_photo_set.all %}
         <img class="responsive-img card-panel" src="{{photo.url}}">

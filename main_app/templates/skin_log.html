@@ -1,27 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>It's time to Glow Up Gorgeous</h1>
-    <hr />
+<div class="diary-contain">
 
-    <a href='/log/skindiary/create_form/'><button>Add Skin Log</button>
+  <div class="diary-blurb">
+    <h2>It's time to Glow Up, Gorgeous</h2>
+    <a href='/log/skindiary/create_form/'><button class="add-log">Add Skin Log</button></a>
+  </div>
 
+  <div class="diary-card-contain">
       {% for s in skin %}
-    <div class="card">
-        <div class='card-content'>
-        <a href="/log/skin/{{ s.id }}">
-          <div class="card-content">
-            <p>Date: {{ s.Date }}</p>
-          </div>
+      {% for photo in s.skin_photo_set.all %}
+      <div class="diary-cards">
+      <img src="{{photo.url}}">
+    {% empty %}
+      <div>No Photos Uploaded</div>
+    {% endfor %}
+        <a href="/log/skin/{{ s.id }}" class="date-link">
+            <p class="date">{{ s.Date }}</p>
         </a>
       </div>
-   
-    </a>
-    </div>
       {% endfor %}
+    </div>
 
-
-
-
-    
+</div>  
+  
 {% endblock %}
