@@ -9,6 +9,8 @@
   <div class='card-content'>
     <a href="/log/skin/{{ skin.id }}/">
       <div class="card-content">
+
+
         <p>Date: {{ skin.Date }}</p>
         <p>Log: {{ skin }}</p>
         <p>Water: {{ skin.Water }}</p>
@@ -16,6 +18,9 @@
         <p>Morning: {{ skin.Morning }}</p>
         <p>Night: {{ skin.Night }}</p>
         <p>Supplements: {{ skin.Supplements }}</p>
+
+        <a href='/log/skindiary/{{ skin.id }}/delete/'><button>Delete</button></a>
+        <a href='/log/skindiary/{{ skin.id }}/edit/'><button>Edit</button></a>
 
       </div>
     </a>

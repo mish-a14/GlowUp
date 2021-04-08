@@ -18,7 +18,7 @@ urlpatterns = [
     path('log/skindiary/', views.skindiary),
 
     # this is the user's log' detail page of every log
-    path('log/<int:hair_id>/', views.hair_detail),
+    path('log/hair/<int:hair_id>/', views.hair_detail),
 
     # path for adding a log for either hair or skin form
 
@@ -35,19 +35,20 @@ urlpatterns = [
     path('log/<int:h_id>/hairdiary/submit_update_form/', views.submit_update_form),
 
 
-    #create forms for skin diary
+    # create forms for skin diary
     path('log/skindiary/create_form/', views.skin_create_form),
     path('log/skindiary/submit_create_form/', views.submit_skin_form),
 
-    #this is the user's log' detail page of every log 
+    # this is the user's log' detail page of every log
     path('log/skin/<int:skin_id>/', views.skin_detail),
 
-    #update skin diary: edit feature
+    # update skin diary: edit feature
     path('log/skindiary/<int:s_id>/edit/', views.skin_edit_form),
-    #update hair diary step 2: accept form from user
-    path('log/skindiary/<int:s_id>/skin_submit_update_form/', views.skin_submit_update_form),
+    # update hair diary step 2: accept form from user
+    path('log/skindiary/<int:s_id>/skin_submit_update_form/',
+         views.skin_submit_update_form),
 
-    #delete skin diary
+    # delete skin diary
     path('log/skindiary/<int:s_id>/delete/', views.skin_delete),
 
     # create skin diary
@@ -55,10 +56,11 @@ urlpatterns = [
     #path('log/<int:s_id>/edit/', views.skin_edit_form),
 
     # update hair diary step 2: accept form from user
-    #path('log/<int:s_id>/hairdiary/submit_update_form/',views.skin_submit_update_form),
+    # path('log/<int:s_id>/hairdiary/submit_update_form/',views.skin_submit_update_form),
     # delete skin diary
 
     # PHOTOS
-    # path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('log/hair/<int:hair_id>/add_hair_photo/', views.add_hair_photo, name='add_hair_photo'),
+    # path('log/skin/<int:skin_id>/add_photo/', views.add_skin_photo, name='add_skin_photo'),
 
 ]

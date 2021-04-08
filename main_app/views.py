@@ -8,6 +8,11 @@ import uuid
 import boto3
 from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo
 
+# Add these "constant" variables below the imports
+S3_BASE_URL = 'https://s3-accesspoint.ca-central-1.amazonaws.com/'
+BUCKET = 'glowup'
+
+
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -38,12 +43,6 @@ def hair_log(request):
 
 
 @login_required
-def hair_log(request):
-    hair = HairDiary.objects.filter(user=request.user)
-    return render(request, 'hair_log.html', {'hair': hair})
-
-
-@login_required
 def skin_log(request):
     skin = SkinDiary.objects.filter(user=request.user)
     return render(request, 'skin_log.html', {'skin': skin})
@@ -55,14 +54,6 @@ def hair_detail(request, hair_id):
     print(hair)
     print(request)
     return render(request, 'log_detail.html', {'hair': hair})
-
-
-@login_required
-def skin_detail(request, skin_id):
-    skin = SkinDiary.objects.get(id=skin_id)
-    print(request)
-    print(skin)
-    return render(request, 'skin_log_detail.html', {'skin': skin})
 
 
 @login_required
@@ -237,9 +228,23 @@ def skin_submit_update_form(request, s_id):
 
 # PHOTOS STUFF
 
-# def add_photo(request):
+# def add_skin_photo(request):
 
-
+def add_hair_photo(request, hair_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
+    try:
+        s3.upload_fileobj(photo_file, BUCKET, key)
+        url = f"{S3_BASE_URL}{BUCKET}/{key}"
+        photo = Hair_Photo.objects.create(url=url, hair=hair_id)
+        photo.save()
+    except:
+        print('An error occurred uploading file to S3')
+    return redirect('/log/hair/', hair_id=hair_id)
+  
 # LOG IN STUFF
 
 

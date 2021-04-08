@@ -11,22 +11,15 @@
         <div class='card-content'>
         <a href="/log/skin/{{ s.id }}">
           <div class="card-content">
-            SKIN
+    
             <p>Date: {{ s.Date }}</p>
-            <p>Log: {{ s.Log }}</p>
-            <p>Water: {{ s.Water }}</p>
-            <p>Product: {{ s.Product }}</p>
-            <p>Morning: {{ s.Morning }}</p>
-            <p>Night: {{ s.Night }}</p>
-            <p>Supplements: {{ s.Supplements }}</p>
+         
           </div>
         </a>
       </div>
-   
     </a>
-      <a href='/log/skindiary/{{ s.id }}/delete/'><button>Delete</button></a>
-      <br>
-      <a href='/log/skindiary/{{ s.id }}/edit/'><button>Edit</button></a>
+
+  
     </div>
       {% endfor %}
 
