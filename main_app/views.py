@@ -247,14 +247,7 @@ def submit_skin_form(request):
     return redirect('/log/skin/')
 
 
-def skin_edit_form(request, skin_id):
-    # get the particular hair post i'm editing by id
-    s = SkinDiary.objects.get(id=skin_id)
-    return render(request, 'skin_edit_form.html', {'s': s})
-
 # skin diary update
-
-
 def skin_edit_form(request, s_id):
     s = SkinDiary.objects.get(id=s_id)
     return render(request, 'skin_edit_form.html', {'s': s})
