@@ -459,6 +459,7 @@ nav .logo {
 .supplements-info{
   /* border: 2px solid red; */
   text-align: center;
+  padding: 10px;
 }
 
 .suppBtn{
@@ -468,7 +469,6 @@ nav .logo {
   background-color: #e59573;
   font-size: 16px;
   color: white;
-  margin: 10px 0px;
 }
 
 

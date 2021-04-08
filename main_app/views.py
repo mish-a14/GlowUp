@@ -218,18 +218,10 @@ def submit_skin_form(request):
     return redirect('/log/skin/')
 
 
-<<<<<<< HEAD
-def skin_edit_form(request, skin_id):
-    s = SkinDiary.objects.get(id=skin_id)
-    return render(request, 'skin_edit_form.html', {'s': s})
-
-# skin diary update
-=======
 # skin diary update
 def skin_edit_form(request, s_id):
     s = SkinDiary.objects.get(id=s_id)
     return render(request, 'skin_edit_form.html', {'s': s})
->>>>>>> 79e8bd61022e616335bda75eeb1494bdd612d76a
 
 
 def skin_submit_update_form(request, s_id):
