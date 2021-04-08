@@ -1,22 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="supplements-container">
+    <div class="supplements-title">
+    <a href='/products/add/form/'><button class="supp-btn">Add Products</button></a>
+</div>        
 
-<div class="diary-contain">
-
-    <div class="diary-blurb">
-        <a href='/products/add/form/'><button class="add-log">Add Products</button></a>
-    </div>
-
-    <div class="diary-card-contain">
+<div class="supp-flex">
     {% for p in products %}
-        <div class="diary-cards">
-        <p>Name: {{ p.Name }}</p>
-        <p>Brand: {{ p.Brand }}</p>
-        <p>Price: ${{ p.Price }}</p>
-        <a href='/products/{{ p.id }}/delete/'><button class="detail-delete">Delete</button></a>
-</div>
+<div class="supplements-info">
+        <p>Name: <span>{{ p.Name }}</span></p>
+        <p>Brand: <span>{{ p.Brand }}</span></p>
+        <p>Price: <span>${{ p.Price }}</span></p>
+        <a href='/products/{{ p.id }}/delete/'><button class="supp-delete">Delete</button></a>
+    </div>
 {% endfor %}
 </div>
-
 </div>
 {% endblock %}

@@ -438,40 +438,47 @@ nav .logo {
 }
 
 /* supplements section */
-/* supplements section */
-/* supplements section */
 
-.supplements-container{
-  /* border: 2px red solid; */
+.supplements-container {
   width: 100%;
-  height: 45vh;
-  /* text-align: center; */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.supplements-title{
-  margin-bottom: 10%;
+.supplements-title {
+  margin: 100px 0px;
 }
 
-.supplements-info{
-  /* border: 2px solid red; */
+.supplements-info {
   text-align: center;
+  padding: 50px;
+  font-size: 18px;
 }
 
-.suppBtn{
+.supplements-info span {
+  font-weight: 600;
+}
+
+.supp-btn {
   padding: 5px;
   outline: none;
   border: 1px solid black;
   background-color: #e59573;
   font-size: 16px;
   color: white;
-  margin: 10px 0px;
 }
 
-
+.supp-delete {
+  background-color: #e1eadf;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  font-size: 16px;
+  margin: 5px 0px;
+}
 
 /* MEDIA QUERIES */
 
@@ -516,5 +523,12 @@ nav .logo {
     height: 400px;
     width: 400px;
   }
-
+  .supp-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .supplements-info {
+    margin: 20px 50px;
+  }
 }

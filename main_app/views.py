@@ -88,8 +88,7 @@ def hair_log(request):
 @login_required
 def skin_log(request):
     skin = SkinDiary.objects.filter(user=request.user).order_by('-Date')
-    photo = Skin_Photo.objects.filter(skin_id=skin)
-    return render(request, 'skin_log.html', {'skin': skin, 'photo': photo})
+    return render(request, 'skin_log.html', {'skin': skin})
 
 
 @login_required
