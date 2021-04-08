@@ -7,14 +7,14 @@ urlpatterns = [
 
 
 
-    #SUPPLEMENTS PATH
-    path('supplements/', views.supplements), #this is the index page
-    path('supplements/add/form/', views.supplements_form), 
-    path('supplements/submit_form/', views.submit_form), 
+    # SUPPLEMENTS PATH
+    path('supplements/', views.supplements),  # this is the index page
+    path('supplements/add/form/', views.supplements_form),
+    path('supplements/submit_form/', views.submit_form),
     path('supplements/<int:p_id>/delete/', views.supplements_delete),
 
 
-    #PRODUCTS PATH
+    # PRODUCTS PATH
     path('products/', views.products),
     path('products/add/form/', views.products_add),
     path('products/submit/', views.products_submit),
@@ -44,10 +44,10 @@ urlpatterns = [
     path('log/hairdiary/submit_create_form/', views.submit_create_form),
 
     # delete hair diary
-    path('log/<int:h_id>/delete/', views.delete),
+    path('log/<int:hair_id>/delete/', views.delete),
 
     # update hair diary step 1: deliver form to user
-    path('log/<int:h_id>/edit/', views.edit_form),
+    path('log/<int:hair_id>/edit/', views.edit_form),
     # update hair diary step 2: accept form from user
     path('log/<int:h_id>/hairdiary/submit_update_form/', views.submit_update_form),
 
@@ -60,16 +60,16 @@ urlpatterns = [
     path('log/skin/<int:skin_id>/', views.skin_detail),
 
     # update skin diary: edit feature
-    path('log/skindiary/<int:s_id>/edit/', views.skin_edit_form),
+    path('log/skindiary/<int:skin_id>/edit/', views.skin_edit_form),
     # update hair diary step 2: accept form from user
     path('log/skindiary/<int:s_id>/skin_submit_update_form/',
          views.skin_submit_update_form),
 
     # delete skin diary
-    path('log/skindiary/<int:s_id>/delete/', views.skin_delete),
+    path('log/skindiary/<int:skin_id>/delete/', views.skin_delete),
 
 
-    #PHOTO PATHS
+    # PHOTO PATHS
     path('log/hair/<int:hair_id>/add_hair_photo/',
          views.add_hair_photo, name='add_hair_photo'),
     path('log/skin/<int:skin_id>/add_skin_photo/',

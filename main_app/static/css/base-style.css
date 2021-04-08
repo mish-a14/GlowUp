@@ -52,13 +52,17 @@ nav .logo {
 .burger > div {
   width: 25px;
   height: 3px;
-  background-color: black;
+  background-color: rgb(53, 53, 53);
   margin: 5px;
   transition: 0.2s ease;
 }
 
 .burger {
   margin: 0 50px;
+}
+
+.burger:hover {
+  cursor: pointer;
 }
 
 .exit .line1 {
@@ -235,12 +239,201 @@ nav .logo {
 
 .sub-field {
   background-color: #e59573;
+  color: white;
   margin: 30px 5px;
   padding: 7px;
   outline: none;
   border: 1px solid black;
   border-radius: 5%;
   font-weight: bold;
+}
+
+.sub-field:hover {
+  cursor: pointer;
+}
+
+/* LOG PAGES */
+
+.diary-contain {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diary-blurb {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.diary-blurb h2 {
+  border-bottom: 1px solid black;
+}
+
+.add-log {
+  margin: 20px 0px;
+  font-size: 18px;
+  padding: 5px;
+  background-color: #e59573;
+  color: white;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.add-log:hover {
+  cursor: pointer;
+}
+
+.diary-cards {
+  height: 300px;
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(255, 245, 245);
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.diary-cards img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.date {
+  margin: 15px 0px;
+}
+
+.date-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+/* DETAIL PAGES */
+
+.detail-contain {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-card {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-photos {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-photos img {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.detail-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+}
+
+.detail-info p {
+  margin: 7px 0px;
+  font-size: 18px;
+}
+
+.detail-info span {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.detail-btn {
+  padding: 3px;
+  background-color: #e59573;
+  border: 1px solid black;
+  color: white;
+  outline: none;
+  border-radius: 2px;
+}
+
+.detail-edit {
+  padding: 5px;
+  border: 1px solid black;
+  outline: none;
+  border-radius: 3px;
+  background-color: #e59573;
+  color: white;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.detail-delete {
+  padding: 5px;
+  border: 1px solid black;
+  outline: none;
+  border-radius: 3px;
+  background-color: #e1eadf;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+/* CREATE AND UPDATE FORMS */
+
+.create-contain {
+  width: 100%;
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-btn {
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  background-color: #e59573;
+  font-size: 16px;
+  color: white;
+  margin: 10px 0px;
+}
+
+.create-contain label {
+  font-size: 18px;
+}
+
+.create-contain input {
+  font-size: 16px;
+  padding: 2px;
+}
+
+.create-contain select {
+  padding: 5px;
+}
+
+.create-contain p {
+  font-size: 18px;
 }
 
 /* MEDIA QUERIES */
@@ -256,5 +449,34 @@ nav .logo {
     width: 70%;
     flex-wrap: nowrap;
     text-align: left;
+  }
+
+  .diary-card-contain {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .diary-cards {
+    margin: 50px;
+  }
+  .action {
+    margin: 200px 0px;
+    font-size: 30px;
+  }
+  .detail-contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .detail-card {
+    width: 70%;
+  }
+  .detail-photos {
+    height: 500px;
+  }
+  .detail-photos img {
+    height: 400px;
+    width: 400px;
   }
 }
