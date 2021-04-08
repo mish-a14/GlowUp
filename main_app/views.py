@@ -79,39 +79,6 @@ def products_delete(request, p_id):
 
 
 
-#AM/PM ROUTINES 
-
-def routine(request):
-    routine= Routine.objects.filter(user=request.user)
-    return render(request, 'routine.html', {'routine': routine})
-
-
-def routine_add(request):
-    return render(request, 'routine_form.html')
-
-def routine_submit(request):
-    Routine.objects.create(
-        Cleanser=request.POST['cleanser'],
-        Toner=request.POST['toner'],
-        Serum=request.POST['serum'],
-        Moisturizer=request.POST['moisturizer'],
-        Mist=request.POST['mist'],
-        Mask=request.POST['mask'],
-        Eye=request.POST['eye'],
-        Sunscreen=request.POST['sunscreen'],
-        Oil=request.POST['oil'],
-        Exfoliatior=request.POST['exfoliator'],
-        Peel=request.POST['peel'],
-        Pill=request.user,
-        Prodsucts=request.user,
-        user=request.user,
-    )
-    return redirect('/routine/')
-
-
-
-
-
 
 @login_required
 def hair_log(request):

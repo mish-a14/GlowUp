@@ -20,12 +20,6 @@ urlpatterns = [
     path('products/submit/', views.products_submit),
     path('products/<int:p_id>/delete/', views.products_delete),
 
-    #AM/PM Routines
-    path('routine/', views.routine),
-    path('routine/add/form/', views.routine_add), 
-    path('routine/submit/', views.routine_submit), 
-
-
 
     # this is the user's log show page
     path('log/hair/', views.hair_log),
@@ -50,6 +44,8 @@ urlpatterns = [
     path('log/<int:hair_id>/edit/', views.edit_form),
     # update hair diary step 2: accept form from user
     path('log/<int:h_id>/hairdiary/submit_update_form/', views.submit_update_form),
+
+
 
 
     # create forms for skin diary

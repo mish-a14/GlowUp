@@ -70,21 +70,3 @@ class Pill(models.Model):
 
 #Routine Log: This is for night and morning combined but the info we aim to collect is: 
 
-class Routine(models.Model):
-    Cleanser= models.TextField(max_length=100)
-    Toner= models.TextField(max_length=100)
-    Serum= models.TextField(max_length=100)
-    Moisturizer= models.TextField(max_length=100)
-    Mist= models.TextField(max_length=100)
-    Mask= models.TextField(max_length=100)
-    Eye= models.TextField(max_length=100)
-    Sunscreen= models.TextField(max_length=100)
-    Oil= models.TextField(max_length=100)
-    Exfoliatior= models.TextField(max_length=100) 
-    Peel= models.TextField(max_length=100)
-    Pill= models.ForeignKey(Pill, on_delete=models.CASCADE)
-    Products= models.ForeignKey(Products, on_delete=models.CASCADE)
-    user= models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.Toner
