@@ -59,7 +59,9 @@ urlpatterns = [
     # path('log/<int:s_id>/hairdiary/submit_update_form/',views.skin_submit_update_form),
     # delete skin diary
 
-    # PHOTOS
-    # path('log/<int:hair_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('log/hair/<int:hair_id>/add_hair_photo/',
+         views.add_hair_photo, name='add_hair_photo'),
+    path('log/skin/<int:skin_id>/add_skin_photo/',
+         views.add_skin_photo, name='add_skin_photo'),
 
 ]

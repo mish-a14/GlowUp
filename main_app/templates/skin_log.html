@@ -9,28 +9,14 @@
       {% for s in skin %}
     <div class="card">
         <div class='card-content'>
-<<<<<<< HEAD
-        <a href="/log/skin/{{ s.id }}/">
-=======
         <a href="/log/skin/{{ s.id }}">
->>>>>>> d7a52655e6188d4a004aa3571d78f406ee330edb
           <div class="card-content">
-            SKIN
             <p>Date: {{ s.Date }}</p>
-            <p>Log: {{ s.Log }}</p>
-            <p>Water: {{ s.Water }}</p>
-            <p>Product: {{ s.Product }}</p>
-            <p>Morning: {{ s.Morning }}</p>
-            <p>Night: {{ s.Night }}</p>
-            <p>Supplements: {{ s.Supplements }}</p>
           </div>
         </a>
       </div>
    
     </a>
-      <a href='/log/skindiary/{{ s.id }}/delete/'><button>Delete</button></a>
-      <br>
-      <a href='/log/skindiary/{{ s.id }}/edit/'><button>Edit</button></a>
     </div>
       {% endfor %}
 

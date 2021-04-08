@@ -12,6 +12,10 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
+
+S3_BASE_URL = 'https://s3.ca-central-1.amazonaws.com/'
+BUCKET = 'glowup'
+
 # Define the home view
 
 
@@ -46,16 +50,12 @@ def skin_log(request):
 @login_required
 def hair_detail(request, hair_id):
     hair = HairDiary.objects.get(id=hair_id)
-    print(hair)
-    print(request)
     return render(request, 'log_detail.html', {'hair': hair})
 
 
 @login_required
 def skin_detail(request, skin_id):
     skin = SkinDiary.objects.get(id=skin_id)
-    print(request)
-    print(skin)
     return render(request, 'skin_log_detail.html', {'skin': skin})
 
 
@@ -193,7 +193,6 @@ def skin_submit_update_form(request, s_id):
     this_entry.Night = request.POST['night']
     this_entry.Supplements = request.POST['supplements']
     this_entry.save()
-    print(this_entry)
     return redirect('/log/skin/')
 
 # skin diary delete
@@ -215,7 +214,6 @@ def skin_submit_update_form(request, s_id):
     this_entry.Morning = request.POST['morning']
     this_entry.Night = request.POST['night']
     this_entry.save()
-    print(this_entry)
     return redirect('/log/skin/')
 # skin diary delete
 # note: i have already imported both of the models at the top!
@@ -223,10 +221,38 @@ def skin_submit_update_form(request, s_id):
 
 # PHOTOS STUFF
 
-# def add_photo(request):
+def add_hair_photo(request, hair_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
+    try:
+        s3.upload_fileobj(photo_file, BUCKET, key)
+        url = f"{S3_BASE_URL}{BUCKET}/{key}"
+        photo = Hair_Photo.objects.create(
+            url=url, hair=HairDiary.objects.get(id=hair_id))
+        photo.save()
+    except:
+        print('An error occurred uploading file to S3')
+    return redirect('/log/hair/', hair_id=hair_id)
 
 
-# LOG IN STUFF
+def add_skin_photo(request, skin_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
+    try:
+        s3.upload_fileobj(photo_file, BUCKET, key)
+        url = f"{S3_BASE_URL}{BUCKET}/{key}"
+        photo = Skin_Photo.objects.create(
+            url=url, skin=SkinDiary.objects.get(id=skin_id))
+        photo.save()
+    except:
+        print('An error occurred uploading file to S3')
+    return redirect('/log/skin/', skin_id=skin_id)
 
 
 def form_valid(self, form):
