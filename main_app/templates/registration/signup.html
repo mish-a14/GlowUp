@@ -12,13 +12,13 @@
 
 {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
 
-  <div class="log-form">
+
     <form method="post" action="{% url 'signup' %}">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="sub-field">Start My Glow</button>
     </form>
-    </div>
+
   </div>
 
 </div>
