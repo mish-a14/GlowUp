@@ -148,17 +148,17 @@ def submit_create_form(request):
 
 
 # hair diary delete
-def delete(request, h_id):
-    h = HairDiary.objects.get(id=h_id)
+def delete(request, hair_id):
+    h = HairDiary.objects.get(id=hair_id)
     h.delete()
     return redirect('/log/hair/')
 
 # hair diary edit
 
 
-def edit_form(request, h_id):
+def edit_form(request, hair_id):
     # get the particular hair post i'm editing by id
-    h = HairDiary.objects.get(id=h_id)
+    h = HairDiary.objects.get(id=hair_id)
     return render(request, 'edit_form.html', {'h': h})
 
 # hair diary submit of update form after user has made edit
@@ -217,9 +217,9 @@ def submit_skin_form(request):
     return redirect('/log/skin/')
 
 
-def skin_edit_form(request, s_id):
+def skin_edit_form(request, skin_id):
     # get the particular hair post i'm editing by id
-    s = SkinDiary.objects.get(id=s_id)
+    s = SkinDiary.objects.get(id=skin_id)
     return render(request, 'skin_edit_form.html', {'s': s})
 
 # skin diary update
@@ -245,8 +245,8 @@ def skin_submit_update_form(request, s_id):
 # skin diary delete
 
 
-def skin_delete(request, s_id):
-    s = SkinDiary.objects.get(id=s_id)
+def skin_delete(request, skin_id):
+    s = SkinDiary.objects.get(id=skin_id)
     s.delete()
     return redirect('/log/skin/')
 
