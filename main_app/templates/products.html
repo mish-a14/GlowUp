@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <a href='/products/add/form/'><button>Add Products</button></a>
+<div class="diary-contain">
 
+    <div class="diary-blurb">
+        <a href='/products/add/form/'><button class="add-log">Add Products</button></a>
+    </div>
+
+    <div class="diary-card-contain">
     {% for p in products %}
-
+        <div class="diary-cards">
         <p>Name: {{ p.Name }}</p>
         <p>Brand: {{ p.Brand }}</p>
         <p>Price: ${{ p.Price }}</p>
-        <a href='/products/{{ p.id }}/delete/'><button>Delete</button></a>
-
+        <a href='/products/{{ p.id }}/delete/'><button class="detail-delete">Delete</button></a>
+</div>
 {% endfor %}
+</div>
 
+</div>
 {% endblock %}

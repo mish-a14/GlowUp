@@ -437,6 +437,42 @@ nav .logo {
   font-size: 18px;
 }
 
+/* supplements section */
+/* supplements section */
+/* supplements section */
+
+.supplements-container{
+  /* border: 2px red solid; */
+  width: 100%;
+  height: 45vh;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.supplements-title{
+  margin-bottom: 10%;
+}
+
+.supplements-info{
+  /* border: 2px solid red; */
+  text-align: center;
+}
+
+.suppBtn{
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  background-color: #e59573;
+  font-size: 16px;
+  color: white;
+  margin: 10px 0px;
+}
+
+
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 950px) {
@@ -480,4 +516,5 @@ nav .logo {
     height: 400px;
     width: 400px;
   }
+
 }

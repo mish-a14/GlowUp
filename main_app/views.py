@@ -53,6 +53,7 @@ def supplements_delete(request, p_id):
 
 # PRODUCTS FORM
 
+
 def products(request):
     products = Products.objects.filter(user=request.user)
     return render(request, 'products.html', {'products': products})
@@ -78,8 +79,6 @@ def products_delete(request, p_id):
     return redirect('/products/')
 
 
-
-
 @login_required
 def hair_log(request):
     hair = HairDiary.objects.filter(user=request.user).order_by('-Date')
@@ -89,7 +88,8 @@ def hair_log(request):
 @login_required
 def skin_log(request):
     skin = SkinDiary.objects.filter(user=request.user).order_by('-Date')
-    return render(request, 'skin_log.html', {'skin': skin})
+    photo = Skin_Photo.objects.filter(skin_id=skin)
+    return render(request, 'skin_log.html', {'skin': skin, 'photo': photo})
 
 
 @login_required
