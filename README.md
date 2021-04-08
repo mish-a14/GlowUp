@@ -7,7 +7,7 @@ GlowUp is a web-based platform offering skin and hair logs.
 
 <h2>Home Page</h2>
 
-![Home Page]("https://i.imgur.com/elkQewD.png")
+![Home Page](https://i.imgur.com/elkQewD.png)
 
 
 
