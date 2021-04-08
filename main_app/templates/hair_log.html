@@ -12,14 +12,14 @@
       {% for h in hair %}
       {% for photo in h.hair_photo_set.all %}
       <a href="/log/hair/{{ h.id }}" class="date-link">
-      <div class="diary-cards">
-        
+      <div class="diary-cards">   
       <img src="{{photo.url}}">
     {% empty %}
-      <div>No Photos Uploaded</div>
+    <a href="/log/hair/{{ h.id }}" class="date-link">
+      <div class="diary-cards">   
+      <img src="https://i.imgur.com/ITM1OiW.jpg">
     {% endfor %}
             <p class="date">{{ h.Date }}</p>
-        
       </div>
       {% endfor %}
     </a>
