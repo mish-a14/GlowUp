@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<<<<<<< HEAD
 <div class="supplements-container">
     <div class="supplements-title">
     <a href='/products/add/form/'><button class="suppBtn">Add Products</button></a>
@@ -14,4 +15,25 @@
     </div>
 {% endfor %}
 </div>
+=======
+
+<div class="diary-contain">
+
+    <div class="diary-blurb">
+        <a href='/products/add/form/'><button class="add-log">Add Products</button></a>
+    </div>
+
+    <div class="diary-card-contain">
+    {% for p in products %}
+        <div class="diary-cards">
+        <p>Name: {{ p.Name }}</p>
+        <p>Brand: {{ p.Brand }}</p>
+        <p>Price: ${{ p.Price }}</p>
+        <a href='/products/{{ p.id }}/delete/'><button class="detail-delete">Delete</button></a>
+</div>
+{% endfor %}
+</div>
+
+</div>
+>>>>>>> 3bb4dbbf984971c759486b4f26d21bf618cb864a
 {% endblock %}
