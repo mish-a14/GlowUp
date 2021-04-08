@@ -1,10 +1,58 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 {% block content %}
 
-    <h1>It's time to Glow Up Gorgeous</h1>
     <hr />
-    <p>If it's Up, then its Up, then it's Up, then it's stuck</p>
-    <footer>All Rights Reserved, &copy; 2021 Glow Up</footer>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="https://www.tucsonchefmaggie.com/sites/default/files/strong-healthy-hair-nails-skin.jpg" style="width:100%; height: 265px">
+      <div class="text"></div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="https://assets.lybrate.com/imgs/dt/tp/963941235eea527a801cc71892df6963/26d16b8cdec7891981266368f9c314a5/952d6b.jpg" style="width:100%; height: 265px">
+      <div class="text"></div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="https://images.unsplash.com/photo-1595514446083-236b9985a0e2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" style="width:100%; height: 265px">
+      <div class="text"></div>
+    </div>
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
 
-    
+
+
+
+    <div class="info">
+        <div class="hairAndSkin">
+            <h3>How do you know your Skin and Hair care products really working?</h3><br>
+            <img src="https://images.pexels.com/photos/3727117/pexels-photo-3727117.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="textImage">
+            <h4> Track Hair and Skin Diary Logs </h4><Br>
+            <h6>GlowUp helps your track your hair and skin journey every week to help you SEE your results and how it impacts your skin and hair  </h6><br>
+        </div><br><br><br>
+        <div class="achieve">
+            <img src="https://images.pexels.com/photos/3727117/pexels-photo-3727117.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"  style="float: left; width: 40%; border-radius: 20px; position: relative" >
+            <h4 style="float: right;"> Achieve your goals</h4> <br><br>
+            <h6 style="float: right">Trying to clear acne ? Maybe you want to reduce frizz ? GlowUp is a tool designed to track your journey using metrics to spot what works and doesn't </h6><br>
+        </div><br><br><br><br><br><br>
+        <div class="routine">
+            <img src="https://images.pexels.com/photos/3727117/pexels-photo-3727117.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="textImage">
+            <h4>Set Routines</h4> <br>
+            <h6>We provide a snapshot of how your hair and skin reacts to your routine to help you target specific issues and look your best </h6>
+        </div>    
+    </div>    <br><br><br><br><br>
+  
+
 {% endblock %}
