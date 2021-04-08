@@ -57,6 +57,16 @@ class Products(models.Model):
 
     
 
+#supplements Log: 
+
+class Pill(models.Model):
+    Name= models.TextField(max_length=100)
+    Price= models.DecimalField(max_digits=8, decimal_places=2)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Oil
+
 
 #Routine Log: This is for night and morning combined but the info we aim to collect is: 
 
@@ -72,18 +82,9 @@ class Routine(models.Model):
     Oil= models.TextField(max_length=100)
     Exfoliatior= models.TextField(max_length=100) 
     Peel= models.TextField(max_length=100)
+    pill= models.ForeignKey(Pill, on_delete=models.CASCADE)
+    products= models.ForeignKey(Products, on_delete=models.CASCADE)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Balm
-
-
-#supplements Log: 
-
-class Pill(models.Model):
-    Name= models.TextField(max_length=100)
-    Price= models.DecimalField(max_digits=8, decimal_places=2)
-    user= models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.Oil
+        return self.Toner
