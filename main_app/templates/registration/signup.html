@@ -2,14 +2,25 @@
 
 {% block content %}
 
-<h1>Sign Up</h1>
+<div id="auth-container">
+
+  <div class="log-contain">
+    <div class="log-box">
+      <h2>Sign Up</h2>
+    </div>
+
 
 {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
 
-<form method="post" action="{% url 'signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="signup">
-</form>
+  <div class="log-form">
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="sub-field">Start My Glow</button>
+    </form>
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}

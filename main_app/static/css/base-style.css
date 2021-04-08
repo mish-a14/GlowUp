@@ -6,18 +6,12 @@
 }
 
 /* NavBar section */
-/* NavBar section */
-/* NavBar section */
 
 body {
   background-color: #faebe4d0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #333333;
-  /* background-image: url("https://www.tucsonchefmaggie.com/sites/default/files/strong-healthy-hair-nails-skin.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position-y: 8vh; */
 }
 
 nav {
@@ -26,7 +20,6 @@ nav {
   align-items: center;
   width: 100%;
   height: 8vh;
-  /* bordeR: 2px red solid; */
 }
 
 .nav-links {
@@ -85,6 +78,8 @@ nav .logo {
   display: inherit;
   background-color: #e1eadf;
 }
+
+/* HOME PAGE */
 
 .info {
   width: 100%;
@@ -202,6 +197,49 @@ nav .logo {
     opacity: 1;
   }
 }
+
+/* SIGN UP AND LOGIN IN PAGES */
+
+#auth-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.log-contain {
+  border: 1px solid blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 60vh;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: #5e605d;
+}
+
+.log-box {
+  margin: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+
+.log-box h2 {
+  margin: 20px 0px;
+}
+
+.sub-field {
+  background-color: #e59573;
+  margin: 30px 0px;
+  padding: 7px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5%;
+  font-weight: bold;
+}
+
+/* MEDIA QUERIES */
 
 @media screen and (min-width: 950px) {
   .info {
