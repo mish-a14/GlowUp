@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method='POST' action='/products/submit/'>
+    {% csrf_token %}
+    Name: <input name='name' autocomplete="off"/>
+    Brand: <input name='brand' autocomplete="off"/>
+    Price: $<input name='price' autocomplete="off" placeholder="0.00"/>
+    <br>
+    <button>Add Product</button>
+
+</form>
+    
+{% endblock %}

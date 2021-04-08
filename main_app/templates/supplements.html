@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<a href='/supplements/add/form/'><button>Add Supplements</button></a>
+
+{% for p in pill %}
+
+        <p>Name: {{ p.Name }}</p>
+        <p>Price: ${{ p.Price }}</p>
+        <a href='/supplements/{{ p.id }}/delete/'><button>Delete</button></a>
+
+{% endfor %}
+
+{% endblock %}

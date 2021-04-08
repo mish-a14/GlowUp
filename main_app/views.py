@@ -6,7 +6,12 @@ from django.views.generic import ListView, DetailView
 
 import uuid
 import boto3
-from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo
+from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo, Pill, Routine, Products
+
+# Add these "constant" variables below the imports
+S3_BASE_URL = 'https://s3-accesspoint.ca-central-1.amazonaws.com/'
+BUCKET = 'glowup'
+
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -23,12 +28,58 @@ def home(request):
     return render(request, 'home.html')
 
 
+
+
+#SUPPLEMENTS FORM STUFF
 def supplements(request):
-    return render(request, 'about.html')
+    pill = Pill.objects.filter(user=request.user)
+    return render(request, 'supplements.html', {'pill': pill})
+
+def supplements_form(request):
+    return render(request, 'add_supplements.html')    
+
+def submit_form(request):
+    Pill.objects.create(
+        Name=request.POST['name'],
+        Price=request.POST['price'],
+        user=request.user,
+    )
+    return redirect('/supplements/')
+
+def supplements_delete(request, p_id):
+    p = Pill.objects.get(id=p_id)
+    p.delete()
+    return redirect('/supplements/')
+
+
+
+
+#PRODUCTS FORM
 
 
 def products(request):
-    return render(request, 'about.html')
+    products = Products.objects.filter(user=request.user)
+    return render(request, 'products.html', {'products': products})
+
+def products_add(request):
+    return render(request, 'products_form.html')
+
+def products_submit(request):
+    Products.objects.create(
+        Name=request.POST['name'],
+        Brand=request.POST['brand'],
+        Price=request.POST['price'],
+        user=request.user,
+    )
+    return redirect('/products/')
+
+def products_delete(request, p_id):
+    p = Products.objects.get(id=p_id)
+    p.delete()
+    return redirect('/products/')
+
+
+
 
 
 def plan(request):
@@ -37,13 +88,13 @@ def plan(request):
 
 @login_required
 def hair_log(request):
-    hair = HairDiary.objects.filter(user=request.user)
+    hair = HairDiary.objects.filter(user=request.user).order_by('-Date')
     return render(request, 'hair_log.html', {'hair': hair})
 
 
 @login_required
 def skin_log(request):
-    skin = SkinDiary.objects.filter(user=request.user)
+    skin = SkinDiary.objects.filter(user=request.user).order_by('-Date')
     return render(request, 'skin_log.html', {'skin': skin})
 
 
@@ -98,25 +149,20 @@ def submit_create_form(request):
     )
     return redirect('/log/hair/')
 
-# hair diary edit
 
 # hair diary delete
-
-
 def delete(request, h_id):
     h = HairDiary.objects.get(id=h_id)
     h.delete()
     return redirect('/log/hair/')
 
-
+# hair diary edit
 def edit_form(request, h_id):
     # get the particular hair post i'm editing by id
     h = HairDiary.objects.get(id=h_id)
     return render(request, 'edit_form.html', {'h': h})
 
 # hair diary submit of update form after user has made edit
-
-
 def submit_update_form(request, h_id):
     this_entry = HairDiary.objects.get(id=h_id)
     this_entry.Log = request.POST['log']

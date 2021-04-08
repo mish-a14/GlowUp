@@ -44,3 +44,47 @@ class Skin_Photo(models.Model):
     def __str__(self):
         return f"Photo for skin_id: {self.skin_id} @{self.url}"
 
+#products Model
+
+class Products(models.Model):
+    Name= models.TextField(max_length=100)
+    Brand= models.TextField(max_length=100)
+    Price= models.DecimalField(max_digits=8, decimal_places=2)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Name
+
+    
+
+#supplements Log: 
+
+class Pill(models.Model):
+    Name= models.TextField(max_length=100)
+    Price= models.DecimalField(max_digits=8, decimal_places=2)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Oil
+
+
+#Routine Log: This is for night and morning combined but the info we aim to collect is: 
+
+class Routine(models.Model):
+    Cleanser= models.TextField(max_length=100)
+    Toner= models.TextField(max_length=100)
+    Serum= models.TextField(max_length=100)
+    Cream= models.TextField(max_length=100)
+    Lotion= models.TextField(max_length=100)
+    Mask= models.TextField(max_length=100)
+    Eye= models.TextField(max_length=100)
+    Sunscreen= models.TextField(max_length=100)
+    Oil= models.TextField(max_length=100)
+    Exfoliatior= models.TextField(max_length=100) 
+    Peel= models.TextField(max_length=100)
+    pill= models.ForeignKey(Pill, on_delete=models.CASCADE)
+    products= models.ForeignKey(Products, on_delete=models.CASCADE)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Toner
