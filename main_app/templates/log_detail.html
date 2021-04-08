@@ -8,27 +8,35 @@
 
 <div class="card">
   <div class='card-content'>
-
-    <form action="/log/hair/{{ hair.id }}/add_hair_photo/" enctype="multipart/form-data" method="POST" class="card-panel">
-      {% csrf_token %}
-      <input type="file" name="photo-file">
-      <br><br>
-      <input type="submit" class="btn" value="Upload Photo">
-    </form>
-
       <div class="card-content">
+
+        
+      {% for photo in hair.hair_photo_set.all %}
+        <img class="responsive-img card-panel" src="{{photo.url}}">
+      {% empty %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      {% endfor %}
+        
+
+      <form action="/log/hair/{{ hair.id }}/add_hair_photo/" enctype="multipart/form-data" method="POST" class="card-panel">
+        {% csrf_token %}
+        <input type="file" name="photo-file">
+        <br><br>
+        <input type="submit" class="btn" value="Upload Photo">
+      </form>
+
         <p>Date: {{ hair.Date }}</p>
-        <p>Log: {{ hair}}</p>
+        <p>Log: {{ hair.Log}}</p>
         <p>Water: {{ hair.Water }}</p>
         <p>Product: {{ hair.Product }}</p>
         <p>Morning: {{ hair.Morning }}</p>
         <p>Night: {{ hair.Night }}</p>
         <p>Supplements: {{ hair.Supplements }}</p>
+        <br>
         <a href='/log/{{ hair.id }}/edit'><button>Edit</button></a>
         <a href='/log/{{ hair.id }}/delete'><button>Delete</button></a>
       </div>
-    </a>
-</div>
+  </div>
 </div>
 
 

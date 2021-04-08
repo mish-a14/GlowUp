@@ -7,9 +7,22 @@
 
 <div class="card">
   <div class='card-content'>
-    <a href="/log/skin/{{ skin.id }}/">
       <div class="card-content">
 
+
+      {% for photo in skin.skin_photo_set.all %}
+        <img class="responsive-img card-panel" src="{{photo.url}}">
+      {% empty %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      {% endfor %}
+
+
+        <form action="/log/skin/{{ skin.id }}/add_skin_photo/" enctype="multipart/form-data" method="POST" class="card-panel">
+          {% csrf_token %}
+          <input type="file" name="photo-file">
+          <br><br>
+          <input type="submit" class="btn" value="Upload Photo">
+        </form>
 
         <p>Date: {{ skin.Date }}</p>
         <p>Log: {{ skin }}</p>
@@ -18,12 +31,10 @@
         <p>Morning: {{ skin.Morning }}</p>
         <p>Night: {{ skin.Night }}</p>
         <p>Supplements: {{ skin.Supplements }}</p>
-
-        <a href='/log/skindiary/{{ skin.id }}/delete/'><button>Delete</button></a>
+        <br />
         <a href='/log/skindiary/{{ skin.id }}/edit/'><button>Edit</button></a>
-
+        <a href='/log/skindiary/{{ skin.id }}/delete/'><button>Delete</button></a>
       </div>
-    </a>
 </div>
 </div>
 {% endblock %}

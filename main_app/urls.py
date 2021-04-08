@@ -3,10 +3,24 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('supplements/', views.supplements),
-    path('products/', views.products),
     path('plan/', views.plan),
     path('accounts/signup/', views.signup, name='signup'),
+
+
+
+    #SUPPLEMENTS PATH
+    path('supplements/', views.supplements), #this is the index page
+    path('supplements/add/form/', views.supplements_form), 
+    path('supplements/submit_form/', views.submit_form), 
+    path('supplements/<int:p_id>/delete/', views.supplements_delete),
+
+
+    #PRODUCTS PATH
+    path('products/', views.products),
+    path('products/add/form/', views.products_add),
+    path('products/submit/', views.products_submit),
+    path('products/<int:p_id>/delete/', views.products_delete),
+
 
 
     # this is the user's log show page
@@ -20,7 +34,6 @@ urlpatterns = [
     # this is the user's log' detail page of every log
     path('log/hair/<int:hair_id>/', views.hair_detail),
 
-    # path for adding a log for either hair or skin form
 
     # create forms for hair diary
     path('log/hairdiary/create_form/', views.create_form),
@@ -51,16 +64,10 @@ urlpatterns = [
     # delete skin diary
     path('log/skindiary/<int:s_id>/delete/', views.skin_delete),
 
-    # create skin diary
-    # update skin diary
-    #path('log/<int:s_id>/edit/', views.skin_edit_form),
 
-    # update hair diary step 2: accept form from user
-    # path('log/<int:s_id>/hairdiary/submit_update_form/',views.skin_submit_update_form),
-    # delete skin diary
-
-    # PHOTOS
-    path('log/hair/<int:hair_id>/add_hair_photo/', views.add_hair_photo, name='add_hair_photo'),
-    # path('log/skin/<int:skin_id>/add_photo/', views.add_skin_photo, name='add_skin_photo'),
-
+    #PHOTO PATHS
+    path('log/hair/<int:hair_id>/add_hair_photo/',
+         views.add_hair_photo, name='add_hair_photo'),
+    path('log/skin/<int:skin_id>/add_skin_photo/',
+         views.add_skin_photo, name='add_skin_photo'),
 ]
