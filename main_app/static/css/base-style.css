@@ -139,6 +139,7 @@ nav .logo {
 
 .info-text {
   padding: 30px;
+  width: 70%;
 }
 
 .info h4 {
@@ -199,5 +200,19 @@ nav .logo {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .info {
+    align-items: center;
+  }
+  .hair-and-skin,
+  .routine,
+  .achieve {
+    justify-content: space-between;
+    width: 70%;
+    flex-wrap: nowrap;
+    text-align: left;
   }
 }
