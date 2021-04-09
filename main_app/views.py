@@ -79,7 +79,6 @@ def routine_submit(request):
        Oil=request.POST['oil'],
        Exfoliatior=request.POST['exfoliator'],
        Peel=request.POST['peel'],
-       Products=request.user,
        user=request.user,
    )
    return redirect('/routine/')
