@@ -2,6 +2,7 @@
 {% block content %}
  
 <div class="amRoutineContainer">
+    <div class="amRoutineBox">
     <div class="amRoutineTitle">
     <a href='/morning/routine/add/form/'><button class="routineBtn">Add Morning Routine</button></a>
 </div>        
@@ -23,7 +24,7 @@
 <a href='/morning/routine/{{ m.id }}/edit'><button class="detail-edit">Edit</button></a>
 <a href='/morning/routine/{{ m.id }}/delete'><button class="detail-delete">Delete</button></a>
 {% endfor %}
-
+</div>
 
 
 </div>
