@@ -27,3 +27,8 @@ GlowUp is a web-based platform offering personalized skin and hair logs for user
 * PostgreSQL
 * Amazon S3
 * Heroku
+
+<h2>Next Steps</h2>
+
+* The next steps for GlowUp is to make it available to the general public (App Store & Play Store)
+* There will be more features upcoming
