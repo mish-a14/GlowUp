@@ -82,6 +82,11 @@ def morning_routine_submit(request):
    )
    return redirect('/morning/routine/')
 
+def morning_detail(request, m_id):
+    m = Routine.objects.get(id=m_id)
+    return render(request, 'morning_detail.html', {'m': m})
+
+
 
 def morning_edit_form(request, m_id):
     m= Routine.objects.get(id=m_id)
@@ -103,7 +108,10 @@ def morning_submit_edit_form(request, m_id):
     this_entry.save()
     return redirect('/morning/routine/')
 
-
+def morning_delete(request, m_id):
+    m = Routine.objects.get(id=m_id)
+    m.delete()
+    return redirect('/morning/routine/')
 
 
 

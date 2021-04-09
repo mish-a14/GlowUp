@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <p>Cleanser: {{ m.Cleanser }}</p>
+        <p>Toner: {{ m.Toner }}</p>
+        <p>Exfoliator: {{ m.Exfoliator }}</p>
+        <p>Serum: {{ m.Serum }}</p>
+        <p>Moisturizer: {{ m.Moisturizer }}</p>
+        <p>Eye Cream: {{ m.Eye }}</p>
+        <p>Face Oil: {{ m.Oil }}</p>
+        <p>Sunscreen: {{ m.Sunscreen }}</p>
+        <p>Facial Peel: {{ m.Peel }}</p>
+        <p>Mask: {{ m.Cleanser }}</p>
+        <p>Mist: {{ m.Mist }}</p>
+        <br>
+        <a href='/morning/routine/{{ m.id }}/edit/'><button class="detail-edit">Edit</button></a>
+        <a href='/morning/routine/{{ m.id }}/delete/'><button class="detail-delete">Delete</button></a>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}
