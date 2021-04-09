@@ -1,6 +1,6 @@
 # GlowUp
 
-GlowUp is a web-based platform offering skin and hair logs.
+GlowUp is a web-based platform offering personalized skin and hair logs for users to keep track of their routines.
 
 <h1>Visit the Site</h1>
 [GlowUp]{}
