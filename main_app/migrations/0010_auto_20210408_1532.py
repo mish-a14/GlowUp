@@ -9,28 +9,4 @@ class Migration(migrations.Migration):
         ('main_app', '0009_auto_20210408_1447'),
     ]
 
-    operations = [
-        migrations.RenameField(
-            model_name='pill',
-            old_name='Oil',
-            new_name='Name',
-        ),
-        migrations.RemoveField(
-            model_name='pill',
-            name='Roller',
-        ),
-        migrations.RemoveField(
-            model_name='pill',
-            name='Tool',
-        ),
-        migrations.RemoveField(
-            model_name='pill',
-            name='Vitamins',
-        ),
-        migrations.AddField(
-            model_name='pill',
-            name='Price',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=8),
-            preserve_default=False,
-        ),
-    ]
+    

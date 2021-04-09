@@ -55,18 +55,18 @@ def supplements_delete(request, p_id):
 
 
 
-#AM/PM ROUTINES
+#AM ROUTINES
  
-def routine(request):
+def morning_routine(request):
    routine= Routine.objects.filter(user=request.user)
-   return render(request, 'routine.html', {'routine': routine})
+#    plan= Routine.objects.filter(user=request.user)
+   return render(request, 'morning_routine.html', {'routine': routine})
  
  
-def routine_add(request):
-   return render(request, 'routine_form.html')
+def morning_routine_add(request):
+   return render(request, 'morning_routine_form.html')
  
-def routine_submit(request):
-   print(request)
+def morning_routine_submit(request):
    Routine.objects.create(
        Cleanser=request.POST['cleanser'],
        Toner=request.POST['toner'],
@@ -81,16 +81,37 @@ def routine_submit(request):
        Peel=request.POST['peel'],
        user=request.user,
    )
-   return redirect('/routine/')
+   return redirect('/morning/routine/')
 
 
 
+#PM ROUTINE
 
-
-
-
-
-
+def evening_routine(request):
+   routine= Routine.objects.filter(user=request.user)
+#    plan= Routine.objects.filter(user=request.user)
+   return render(request, 'evening_routine.html', {'routine': routine})
+ 
+ 
+def evening_routine_add(request):
+   return render(request, 'evening_routine_form.html')
+ 
+def evening_routine_submit(request):
+   Routine.objects.create(
+       Cleanser=request.POST['cleanser'],
+       Toner=request.POST['toner'],
+       Serum=request.POST['serum'],
+       Moisturizer=request.POST['moisturizer'],
+       Mist=request.POST['mist'],
+       Mask=request.POST['mask'],
+       Eye=request.POST['eye'],
+       Sunscreen=request.POST['sunscreen'],
+       Oil=request.POST['oil'],
+       Exfoliatior=request.POST['exfoliator'],
+       Peel=request.POST['peel'],
+       user=request.user,
+   )
+   return redirect('/evening/routine/')
 
 
 

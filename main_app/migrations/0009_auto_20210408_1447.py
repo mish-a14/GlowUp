@@ -9,17 +9,4 @@ class Migration(migrations.Migration):
         ('main_app', '0008_pill_products_routine'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='pill',
-            name='Roller',
-            field=models.TextField(default=True, max_length=100),
-            preserve_default=False,
-        ),
-        migrations.AddField(
-            model_name='pill',
-            name='Tool',
-            field=models.TextField(default=True, max_length=100),
-            preserve_default=False,
-        ),
-    ]
+    

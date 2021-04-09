@@ -10,15 +10,4 @@ class Migration(migrations.Migration):
         ('main_app', '0014_remove_routine_pill'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='routine',
-            name='Products',
-        ),
-        migrations.AddField(
-            model_name='products',
-            name='Routine',
-            field=models.ForeignKey(default=True, on_delete=django.db.models.deletion.CASCADE, to='main_app.routine'),
-            preserve_default=False,
-        ),
-    ]
+   

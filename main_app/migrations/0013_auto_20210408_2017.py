@@ -9,15 +9,4 @@ class Migration(migrations.Migration):
         ('main_app', '0012_auto_20210408_1942'),
     ]
 
-    operations = [
-        migrations.RenameField(
-            model_name='routine',
-            old_name='Cream',
-            new_name='Mist',
-        ),
-        migrations.RenameField(
-            model_name='routine',
-            old_name='Lotion',
-            new_name='Moisturizer',
-        ),
-    ]
+   

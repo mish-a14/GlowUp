@@ -9,9 +9,4 @@ class Migration(migrations.Migration):
         ('main_app', '0013_auto_20210408_2017'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='routine',
-            name='Pill',
-        ),
-    ]
+   

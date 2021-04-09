@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+ 
+<a href='/morning/routine/add/form/'><button>Add Morning Routine</button></a>
+ 
+{% for r in routine %}
+ 
+    <p>Cleanser: {{ r.Cleanser }}</p>
+    <p>Toner: {{ r.Toner }}</p>
+    <p>Exfoliator: {{ r.Exfoliator }}</p>
+    <p>Serum: {{ r.Serum }}</p>
+    <p>Moisturizer: {{ r.Moisturizer }}</p>
+    <p>Eye Cream: {{ r.Eye }}</p>
+    <p>Face Oil: {{ r.Oil }}</p>
+    <p>Sunscreen: {{ r.Sunscreen }}</p>
+    <p>Facial Peel: {{ r.Peel }}</p>
+    <p>Mask: {{ r.Cleanser }}</p>
+    <p>Mist: {{ r.Mist }}</p>
+ 
+{% endfor %}
+
+
+{% endblock %}
+

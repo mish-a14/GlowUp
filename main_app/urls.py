@@ -5,10 +5,23 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('accounts/signup/', views.signup, name='signup'),
 
-    #ROUTINE
-    path('routine/', views.routine),
-    path('routine/add/form/', views.routine_add),
-    path('routine/submit/', views.routine_submit),
+    #AM ROUTINE
+    path('morning/routine/', views.morning_routine),
+    path('morning/routine/add/form/', views.morning_routine_add),
+    path('morning/routine/submit/', views.morning_routine_submit),
+
+
+
+
+
+
+
+    #PM ROUTINE
+    path('evening/routine/', views.evening_routine),
+    path('evening/routine/add/form/', views.evening_routine_add),
+    path('evening/routine/submit/', views.evening_routine_submit),
+
+
 
 
     # SUPPLEMENTS PATH
