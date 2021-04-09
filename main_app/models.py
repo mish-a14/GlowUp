@@ -56,6 +56,16 @@ class Pill(models.Model):
         return self.Oil
 
 
+class Products(models.Model):
+    Name= models.TextField(max_length=100)
+    Brand= models.TextField(max_length=100)
+    Price= models.DecimalField(max_digits=8, decimal_places=2)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Name
+
+
 #Routine Log: This is for night and morning combined but the 
 # info we aim to collect is: 
 class Routine(models.Model):
@@ -74,17 +84,4 @@ class Routine(models.Model):
  
    def __str__(self):
        return self.Toner
-
-
-#products Model
-
-class Products(models.Model):
-    Name= models.TextField(max_length=100)
-    Brand= models.TextField(max_length=100)
-    Price= models.DecimalField(max_digits=8, decimal_places=2)
-    Routine= models.ForeignKey(Routine, on_delete=models.CASCADE)
-    user= models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.Name
 
