@@ -9,10 +9,10 @@ urlpatterns = [
     path('morning/routine/', views.morning_routine),
     path('morning/routine/add/form/', views.morning_routine_add),
     path('morning/routine/submit/', views.morning_routine_submit),
-    path('morning/routine/<int:m_id>/', views.morning_detail),
-    path('morning/routine/<int:m_id>/edit/', views.morning_edit_form),
-    path('morning/routine/<int:m_id>/submit_edit_form/', views.morning_submit_edit_form),
-    path('supplements/<int:m_id>/delete/', views.morning_delete),
+    path('morning/routine/<int:r_id>/', views.morning_detail),
+    path('morning/routine/<int:r_id>/edit/', views.morning_edit_form),
+    path('morning/routine/<int:r_id>/submit_edit_form/', views.morning_submit_edit_form),
+    path('morning/routine/<int:r_id>/delete/', views.morning_delete),
     
 
 

@@ -61,7 +61,6 @@ def supplements_delete(request, p_id):
 @login_required
 def morning_routine(request):
    routine= Routine.objects.filter(user=request.user)
-#    plan= Routine.objects.filter(user=request.user)
    return render(request, 'morning_routine.html', {'routine': routine})
  
 @login_required
@@ -88,18 +87,18 @@ def morning_routine_submit(request):
 
 @login_required
 def morning_detail(request, routine_id):
-    m = Routine.objects.get(id=m_id)
-    return render(request, 'morning_detail.html', {'m': m})
+    r = Routine.objects.get(id=r_id)
+    return render(request, 'morning_detail.html', {'r': r})
 
 
 @login_required
-def morning_edit_form(request, m_id):
-    m= Routine.objects.get(id=m_id)
-    return render(request, 'morning_edit_form.html', {'m': m})
+def morning_edit_form(request, r_id):
+    r= Routine.objects.get(id=r_id)
+    return render(request, 'morning_edit_form.html', {'r': r})
 
 @login_required
-def morning_submit_edit_form(request, m_id):
-    this_entry = Routine.objects.get(id=m_id)
+def morning_submit_edit_form(request, r_id):
+    this_entry = Routine.objects.get(id=r_id)
     this_entry.Cleanser = request.POST['cleanser']
     this_entry.Toner = request.POST['toner']
     this_entry.Serum = request.POST['serum']
@@ -115,9 +114,9 @@ def morning_submit_edit_form(request, m_id):
     return redirect('/morning/routine/')
 
 @login_required
-def morning_delete(request, m_id):
-    m = Routine.objects.get(id=m_id)
-    m.delete()
+def morning_delete(request, r_id):
+    r = Routine.objects.get(id=r_id)
+    r.delete()
     return redirect('/morning/routine/')
 
 

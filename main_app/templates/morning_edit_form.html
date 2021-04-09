@@ -2,19 +2,19 @@
 {% block content %}
 
 
-<form method='POST' action='morning/routine/<int:m_id>/submit_edit_form/'>
+<form method='POST' action='/morning/routine/{{ r.id }}/submit_edit_form/'>
     {% csrf_token %}
-    Cleanser: <input name='cleanser' autocomplete="off" value='{{ m.Log }}'/>
-    Toner: <input name='toner' autocomplete="off" value='{{ m.Toner }}'/>
-    Exfoliator: <input name='exfoliator' autocomplete="off" value='{{ m.Exfoliator }}'/>
-    Serum: <input name='serum' autocomplete="off" value='{{ m.Serum }}'/>
-    Moisturizer: <input name='moisturizer' autocomplete="off" value='{{ m.Moisturizer }}'/>
-    Eye Cream: <input name='eye' autocomplete="off" value='{{ m.Eye }}'/>
-    Face Oil: <input name='oil' autocomplete="off" value='{{ m.Oil }}'/>
-    Sunscreen: <input name='sunscreen' autocomplete="off" value='{{ m.Sunscreen }}'/>
-    Facial Peel: <input name='peel' autocomplete="off" value='{{ m.Peel }}'/>
-    Mask: <input name='mask' autocomplete="off" value='{{ m.Mask }}'/>
-    Mist: <input name='mist' autocomplete="off" value='{{ m.Mist }}'/>
+    Cleanser: <input name='cleanser' autocomplete="off" value='{{ r.Cleanser }}'/>
+    Toner: <input name='toner' autocomplete="off" value='{{ r.Toner }}'/>
+    Exfoliator: <input name='exfoliator' autocomplete="off" value='{{ r.Exfoliator }}'/>
+    Serum: <input name='serum' autocomplete="off" value='{{ r.Serum }}'/>
+    Moisturizer: <input name='moisturizer' autocomplete="off" value='{{ r.Moisturizer }}'/>
+    Eye Cream: <input name='eye' autocomplete="off" value='{{ r.Eye }}'/>
+    Face Oil: <input name='oil' autocomplete="off" value='{{ r.Oil }}'/>
+    Sunscreen: <input name='sunscreen' autocomplete="off" value='{{ r.Sunscreen }}'/>
+    Facial Peel: <input name='peel' autocomplete="off" value='{{ r.Peel }}'/>
+    Mask: <input name='mask' autocomplete="off" value='{{ r.Mask }}'/>
+    Mist: <input name='mist' autocomplete="off" value='{{ r.Mist }}'/>
    <br>
    <button type='submit'>Add AM Routine</button>
 </form>
