@@ -56,7 +56,6 @@ def supplements_delete(request, p_id):
 
 
 #AM ROUTINES
- 
 def morning_routine(request):
    routine= Routine.objects.filter(user=request.user)
 #    plan= Routine.objects.filter(user=request.user)
@@ -82,6 +81,30 @@ def morning_routine_submit(request):
        user=request.user,
    )
    return redirect('/morning/routine/')
+
+
+def morning_edit_form(request, m_id):
+    m= Routine.objects.get(id=m_id)
+    return render(request, 'morning_edit_form.html', {'m': m})
+
+def morning_submit_edit_form(request, m_id):
+    this_entry = Routine.objects.get(id=m_id)
+    this_entry.Cleanser = request.POST['cleanser']
+    this_entry.Toner = request.POST['toner']
+    this_entry.Serum = request.POST['serum']
+    this_entry.Moisturizer = request.POST['moisturizer']
+    this_entry.Mist = request.POST['mist']
+    this_entry.Mask = request.POST['mask']
+    this_entry.Eye = request.POST['eye']
+    this_entry.Sunscreen = request.POST['sunscreen']
+    this_entry.Oil = request.POST['oil']
+    this_entry.Exfoliatior = request.POST['exfoliatior']
+    this_entry.Peel = request.POST['peel']
+    this_entry.save()
+    return redirect('/morning/routine/')
+
+
+
 
 
 
@@ -224,7 +247,7 @@ def edit_form(request, hair_id):
 
 # hair diary submit of update form after user has made edit
 
-
+@login_required
 def submit_update_form(request, h_id):
     this_entry = HairDiary.objects.get(id=h_id)
     this_entry.Log = request.POST['log']
@@ -235,25 +258,10 @@ def submit_update_form(request, h_id):
     this_entry.Night = request.POST['night']
     this_entry.Supplements = request.POST['supplements']
     this_entry.save()
-    print(this_entry)
     return redirect('/log/hair/')
 
 
-# hair diary submit of update form after user has made edit
 
-
-@login_required
-def submit_update_form(request, h_id):
-    this_entry = HairDiary.objects.get(id=h_id)
-    this_entry.Log = request.POST['log']
-    this_entry.Date = request.POST['date']
-    this_entry.Water = request.POST['water']
-    this_entry.Product = request.POST['product']
-    this_entry.Morning = request.POST['morning']
-    this_entry.Night = request.POST['night']
-    this_entry.save()
-    print(this_entry)
-    return redirect('/log/hair/')
 
 
 # skin Diary FORM
