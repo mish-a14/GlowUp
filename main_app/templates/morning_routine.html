@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
  
- 
-<a href='/morning/routine/add/form/'><button>Add Morning Routine</button></a>
- 
+<div class="amRoutineContainer">
+    <div class="amRoutineTitle">
+    <a href='/morning/routine/add/form/'><button class="routineBtn">Add Morning Routine</button></a>
+</div>        
+<div class="routine-flex">
 {% for r in routine %}
- 
+<div class="routine-info">
     <p>Cleanser: {{ r.Cleanser }}</p>
     <p>Toner: {{ r.Toner }}</p>
     <p>Exfoliator: {{ r.Exfoliator }}</p>
@@ -17,10 +19,15 @@
     <p>Facial Peel: {{ r.Peel }}</p>
     <p>Mask: {{ r.Cleanser }}</p>
     <p>Mist: {{ r.Mist }}</p>
- 
+</div>
 {% endfor %}
+<<<<<<< HEAD
 <a href='/morning/routine/{{ m.id }}/edit'><button class="detail-edit">Edit</button></a>
 <a href='/morning/routine/{{ m.id }}/delete'><button class="detail-delete">Delete</button></a>
+=======
+</div>
+</div>
+>>>>>>> e2c9e3fb8f50cb19ed3fe29ba5084fd0c5607552
 
 {% endblock %}
 

@@ -2,26 +2,27 @@
 {% block content %}
  
  
-
-Hey Gorgeous! Fill out your PM Plan below
-<form method='POST' action='/evening/routine/submit/'>
-   {% csrf_token %}
-   Cleanser: <input name='cleanser' autocomplete="off"/>
-   Toner: <input name='toner' autocomplete="off"/>
-   Exfoliator: <input name='exfoliator' autocomplete="off"/>
-   Serum: <input name='serum' autocomplete="off"/>
-   Moisturizer: <input name='moisturizer' autocomplete="off"/>
-   Eye Cream: <input name='eye' autocomplete="off"/>
-   Oil: <input name='oil' autocomplete="off"/>
-   Sunscreen: <input name='sunscreen' autocomplete="off"/>
-   Facial Peel: <input name='peel' autocomplete="off"/>
-   Mist: <input name='mist' autocomplete="off"/>
-   Mask: <input name='mask' autocomplete="off"/>
-   <br>
-   <button type='submit'>Add PM Routine</button>
- 
-</form>
- 
+<div class="pmContainer">
+   <h2 class="pmTitle">Hey Gorgeous! Fill out your PM Plan below</h2>
+   <div class="pmForm">
+   <form method='POST' action='/evening/routine/submit/'>
+         {% csrf_token %}
+         Cleanser: <br><input name='cleanser' autocomplete="off"/><br>
+         Toner: <br><input name='toner' autocomplete="off"/><br>
+         Exfoliator:<br> <input name='exfoliator' autocomplete="off"/><br>
+         Serum:<br> <input name='serum' autocomplete="off"/><br>
+         Moisturizer: <br><input name='moisturizer' autocomplete="off"/><br>
+         Eye Cream:<br> <input name='eye' autocomplete="off"/><br>
+         Oil: <br><input name='oil' autocomplete="off"/><br>
+         Sunscreen: <br><input name='sunscreen' autocomplete="off"/><br>
+         Facial Peel:<br> <input name='peel' autocomplete="off"/><br>
+         Mist: <br><input name='mist' autocomplete="off"/><br>
+         Mask:<br> <input name='mask' autocomplete="off"/><br>
+         <br>
+         <button type='submit' class="pmBtn">Add PM Routine</button>
+      </div>
+   </form>
+ </div>
  
  
  
