@@ -9,7 +9,7 @@ from django.views.generic import ListView, DetailView
 
 import uuid
 import boto3
-from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo, Pill, Routine, Products
+from .models import HairDiary, SkinDiary, Hair_Photo, Skin_Photo, Pill, Products, Routine
 
 # Add these "constant" variables below the imports
 S3_BASE_URL = 'https://s3-accesspoint.ca-central-1.amazonaws.com/'
@@ -51,8 +51,53 @@ def supplements_delete(request, p_id):
     return redirect('/supplements/')
 
 
-# PRODUCTS FORM
 
+
+
+
+#AM/PM ROUTINES
+ 
+def routine(request):
+   routine= Routine.objects.filter(user=request.user)
+   return render(request, 'routine.html', {'routine': routine})
+ 
+ 
+def routine_add(request):
+   return render(request, 'routine_form.html')
+ 
+def routine_submit(request):
+   print(request)
+   Routine.objects.create(
+       Cleanser=request.POST['cleanser'],
+       Toner=request.POST['toner'],
+       Serum=request.POST['serum'],
+       Moisturizer=request.POST['moisturizer'],
+       Mist=request.POST['mist'],
+       Mask=request.POST['mask'],
+       Eye=request.POST['eye'],
+       Sunscreen=request.POST['sunscreen'],
+       Oil=request.POST['oil'],
+       Exfoliatior=request.POST['exfoliator'],
+       Peel=request.POST['peel'],
+       Products=request.user,
+       user=request.user,
+   )
+   return redirect('/routine/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# PRODUCTS FORM
 
 def products(request):
     products = Products.objects.filter(user=request.user)

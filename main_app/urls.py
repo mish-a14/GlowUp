@@ -5,6 +5,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('accounts/signup/', views.signup, name='signup'),
 
+    #ROUTINE
+    path('routine/', views.routine),
+    path('routine/add/form/', views.routine_add),
+    path('routine/submit/', views.routine_submit),
 
 
     # SUPPLEMENTS PATH
