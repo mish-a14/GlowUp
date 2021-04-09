@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+<div class="amPmContainer">
+   <div class="amContainer">
+   <h2 class=amPmTitle>Hey Gorgeous! Fill out your AM Plan below</h2>
+   <form method='POST' action='/routine/submit/'>
+      {% csrf_token %}
+      Cleanser:  <br><input name='cleanser' autocomplete="off"/> <br> 
+      Toner:  <br><input name='toner' autocomplete="off"/> <br> 
+      Exfoliator:  <br><input name='exfoliator' autocomplete="off"/> <br> 
+      Serum: <br> <input name='serum' autocomplete="off"/> <br> 
+      Moisturizer:  <br><input name='moisturizer' autocomplete="off"/> <br> 
+      Eye Cream: <br> <input name='eye' autocomplete="off"/> <br> 
+      Face Oil:  <br><input name='oil' autocomplete="off"/> <br> 
+      Sunscreen: <br> <input name='sunscreen' autocomplete="off"/> <br> 
+      Facial Peel:  <br><input name='peel' autocomplete="off"/> <br> 
+      Mist: <br><input name='mist' autocomplete="off"/> <br> 
+      Mask: <br><input name='mask' autocomplete="off"/> <br> 
+      <br>
+      <button type='submit' class="amPmBtn">Add AM Routine</button>
+   </div>
+   </form>
+   <br>
+   <br>
+
+   <div class="pmContainer">
+   <h2 class=amPmTitle>Hey Gorgeous! Fill out your PM Plan below</h2>
+   <form method='POST' action='/routine/submit/'>
+      {% csrf_token %}
+      Cleanser:  <br><input name='cleanser' autocomplete="off"/> <br> 
+      Toner:  <br><input name='toner' autocomplete="off"/> <br> 
+      Exfoliator:  <br><input name='exfoliator' autocomplete="off"/> <br> 
+      Serum:  <br><input name='serum' autocomplete="off"/> <br> 
+      Moisturizer:  <br><input name='moisturizer' autocomplete="off"/> <br> 
+      Eye Cream:  <br><input name='eye' autocomplete="off"/> <br> 
+      Face Oil:  <br><input name='oil' autocomplete="off"/> <br> 
+      Sunscreen:  <br><input name='sunscreen' autocomplete="off"/> <br> 
+      Facial Peel:  <br><input name='peel' autocomplete="off"/> <br> 
+      Mist: <br><input name='mist' autocomplete="off"/> <br> 
+      Mask: <br><input name='mask' autocomplete="off"/> <br> 
+      <br>
+      <button type='submit' class="amPmBtn">Add PM Routine</button>
+   
+   </form>
+   </div>
+</div> 
+{% endblock %}
