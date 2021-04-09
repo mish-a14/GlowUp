@@ -21,21 +21,22 @@ BUCKET = 'glowup'
 
 # Define the home view
 
-
+@login_required
 def home(request):
     return render(request, 'home.html')
 
 
 # SUPPLEMENTS FORM STUFF
+@login_required
 def supplements(request):
     pill = Pill.objects.filter(user=request.user)
     return render(request, 'supplements.html', {'pill': pill})
 
-
+@login_required
 def supplements_form(request):
     return render(request, 'add_supplements.html')
 
-
+@login_required
 def submit_form(request):
     Pill.objects.create(
         Name=request.POST['name'],
@@ -44,7 +45,7 @@ def submit_form(request):
     )
     return redirect('/supplements/')
 
-
+@login_required
 def supplements_delete(request, p_id):
     p = Pill.objects.get(id=p_id)
     p.delete()
@@ -56,15 +57,18 @@ def supplements_delete(request, p_id):
 
 
 #AM ROUTINES
+
+@login_required
 def morning_routine(request):
    routine= Routine.objects.filter(user=request.user)
 #    plan= Routine.objects.filter(user=request.user)
    return render(request, 'morning_routine.html', {'routine': routine})
  
- 
+@login_required
 def morning_routine_add(request):
    return render(request, 'morning_routine_form.html')
  
+@login_required
 def morning_routine_submit(request):
    Routine.objects.create(
        Cleanser=request.POST['cleanser'],
@@ -82,16 +86,18 @@ def morning_routine_submit(request):
    )
    return redirect('/morning/routine/')
 
-def morning_detail(request, m_id):
+@login_required
+def morning_detail(request, routine_id):
     m = Routine.objects.get(id=m_id)
     return render(request, 'morning_detail.html', {'m': m})
 
 
-
+@login_required
 def morning_edit_form(request, m_id):
     m= Routine.objects.get(id=m_id)
     return render(request, 'morning_edit_form.html', {'m': m})
 
+@login_required
 def morning_submit_edit_form(request, m_id):
     this_entry = Routine.objects.get(id=m_id)
     this_entry.Cleanser = request.POST['cleanser']
@@ -108,6 +114,7 @@ def morning_submit_edit_form(request, m_id):
     this_entry.save()
     return redirect('/morning/routine/')
 
+@login_required
 def morning_delete(request, m_id):
     m = Routine.objects.get(id=m_id)
     m.delete()
@@ -117,16 +124,17 @@ def morning_delete(request, m_id):
 
 
 #PM ROUTINE
-
+@login_required
 def evening_routine(request):
    routine= Routine.objects.filter(user=request.user)
 #    plan= Routine.objects.filter(user=request.user)
    return render(request, 'evening_routine.html', {'routine': routine})
  
- 
+@login_required
 def evening_routine_add(request):
    return render(request, 'evening_routine_form.html')
- 
+
+@login_required
 def evening_routine_submit(request):
    Routine.objects.create(
        Cleanser=request.POST['cleanser'],
@@ -149,16 +157,16 @@ def evening_routine_submit(request):
 
 
 # PRODUCTS FORM
-
+@login_required
 def products(request):
     products = Products.objects.filter(user=request.user)
     return render(request, 'products.html', {'products': products})
 
-
+@login_required
 def products_add(request):
     return render(request, 'products_form.html')
 
-
+@login_required
 def products_submit(request):
     Products.objects.create(
         Name=request.POST['name'],
@@ -168,7 +176,7 @@ def products_submit(request):
     )
     return redirect('/products/')
 
-
+@login_required
 def products_delete(request, p_id):
     p = Products.objects.get(id=p_id)
     p.delete()
@@ -198,20 +206,20 @@ def skin_detail(request, skin_id):
     skin = SkinDiary.objects.get(id=skin_id)
     return render(request, 'skin_log_detail.html', {'skin': skin})
 
-
+@login_required
 def hairdiary(request):
     return render(request, 'diary.html')
 
-
+@login_required
 def skindiary(request):
     return render(request, 'diary.html')
 
 
-# page to add log that displays both HairDiary and Skin Diary buttons
+@login_required
 def add_hair_log(request):
     return render(request, 'create_form.html')
 
-
+@login_required
 def add_skin_log(request):
     return render(request, 'create_form.html')
 
@@ -240,6 +248,7 @@ def submit_create_form(request):
 
 
 # hair diary delete
+@login_required
 def delete(request, hair_id):
     h = HairDiary.objects.get(id=hair_id)
     h.delete()
@@ -247,7 +256,7 @@ def delete(request, hair_id):
 
 # hair diary edit
 
-
+@login_required
 def edit_form(request, hair_id):
     # get the particular hair post i'm editing by id
     h = HairDiary.objects.get(id=hair_id)
@@ -267,9 +276,6 @@ def submit_update_form(request, h_id):
     this_entry.Supplements = request.POST['supplements']
     this_entry.save()
     return redirect('/log/hair/')
-
-
-
 
 
 # skin Diary FORM
@@ -295,11 +301,12 @@ def submit_skin_form(request):
 
 
 # skin diary update
+@login_required
 def skin_edit_form(request, s_id):
     s = SkinDiary.objects.get(id=s_id)
     return render(request, 'skin_edit_form.html', {'s': s})
 
-
+@login_required
 def skin_submit_update_form(request, s_id):
     this_entry = SkinDiary.objects.get(id=s_id)
     this_entry.Log = request.POST['log']
@@ -314,7 +321,7 @@ def skin_submit_update_form(request, s_id):
 
 # skin diary delete
 
-
+@login_required
 def skin_delete(request, skin_id):
     s = SkinDiary.objects.get(id=skin_id)
     s.delete()
@@ -337,7 +344,7 @@ def skin_submit_update_form(request, s_id):
 
 
 # PHOTOS STUFF
-
+@login_required
 def add_hair_photo(request, hair_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -354,7 +361,7 @@ def add_hair_photo(request, hair_id):
         print('An error occurred uploading file to S3')
     return redirect('/log/hair/', hair_id=hair_id)
 
-
+@login_required
 def add_skin_photo(request, skin_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -371,12 +378,12 @@ def add_skin_photo(request, skin_id):
         print('An error occurred uploading file to S3')
     return redirect('/log/skin/', skin_id=skin_id)
 
-
+@login_required
 def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-
+@login_required
 def signup(request):
     error_message = ''
     if request.method == 'POST':

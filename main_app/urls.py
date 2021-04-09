@@ -16,10 +16,6 @@ urlpatterns = [
     
 
 
-
-
-
-
     #PM ROUTINE
     path('evening/routine/', views.evening_routine),
     path('evening/routine/add/form/', views.evening_routine_add),
@@ -27,9 +23,8 @@ urlpatterns = [
 
 
 
-
     # SUPPLEMENTS PATH
-    path('supplements/', views.supplements),  # this is the index page
+    path('supplements/', views.supplements),  
     path('supplements/add/form/', views.supplements_form),
     path('supplements/submit_form/', views.submit_form),
     path('supplements/<int:p_id>/delete/', views.supplements_delete),
@@ -57,13 +52,8 @@ urlpatterns = [
     # create forms for hair diary
     path('log/hairdiary/create_form/', views.create_form),
     path('log/hairdiary/submit_create_form/', views.submit_create_form),
-
-    # delete hair diary
     path('log/<int:hair_id>/delete/', views.delete),
-
-    # update hair diary step 1: deliver form to user
     path('log/<int:hair_id>/edit/', views.edit_form),
-    # update hair diary step 2: accept form from user
     path('log/<int:h_id>/hairdiary/submit_update_form/', views.submit_update_form),
 
 
@@ -72,17 +62,10 @@ urlpatterns = [
     # create forms for skin diary
     path('log/skindiary/create_form/', views.skin_create_form),
     path('log/skindiary/submit_create_form/', views.submit_skin_form),
-
-    # this is the user's log' detail page of every log
     path('log/skin/<int:skin_id>/', views.skin_detail),
-
-    # update skin diary: edit feature
     path('log/skindiary/<int:s_id>/edit/', views.skin_edit_form),
-    # update hair diary step 2: accept form from user
     path('log/skindiary/<int:s_id>/skin_submit_update_form/',
          views.skin_submit_update_form),
-
-    # delete skin diary
     path('log/skindiary/<int:skin_id>/delete/', views.skin_delete),
 
 
