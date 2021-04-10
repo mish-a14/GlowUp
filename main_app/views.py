@@ -69,12 +69,13 @@ def morning_routine_add(request):
  
 @login_required
 def morning_routine_submit(request):
-   Routine.objects.create(
-       Cleanser=request.POST['cleanser'],
-       Toner=request.POST['toner'],
-       Serum=request.POST['serum'],
-       Moisturizer=request.POST['moisturizer'],
-       Mist=request.POST['mist'],
+    c = Products.objects.get(id=request.POST['cleanser'])
+    Routine.objects.create(
+        Cleanser= c,
+        Toner=request.POST['toner'],
+        Serum=request.POST['serum'],
+        Moisturizer=request.POST['moisturizer'],
+        Mist=request.POST['mist'],
        Mask=request.POST['mask'],
        Eye=request.POST['eye'],
        Sunscreen=request.POST['sunscreen'],
@@ -83,7 +84,7 @@ def morning_routine_submit(request):
        Peel=request.POST['peel'],
        user=request.user,
    )
-   return redirect('/morning/routine/')
+    return redirect('/morning/routine/')
 
 @login_required
 def morning_detail(request, routine_id):

@@ -69,7 +69,7 @@ class Products(models.Model):
 #Routine Log: This is for night and morning combined but the 
 # info we aim to collect is: 
 class Routine(models.Model):
-   Cleanser= models.TextField(max_length=100)
+   Cleanser= models.ForeignKey(Products, on_delete=models.CASCADE)
    Toner= models.TextField(max_length=100)
    Serum= models.TextField(max_length=100)
    Moisturizer= models.TextField(max_length=100)
