@@ -2,8 +2,8 @@
 
 GlowUp is a web-based platform offering personalized skin and hair logs for users to keep track of their routines.
 
-<h1>Visit the Site</h1>
-[GlowUp]{}
+<h1>https://glow-up-app.herokuapp.com/</h1>
+
 
 <h2>Home Page</h2>
 
