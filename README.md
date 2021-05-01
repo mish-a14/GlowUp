@@ -1,5 +1,7 @@
 # GlowUp
 
+![Logo](https://i.imgur.com/WBL0GbL.png)
+
 GlowUp is a web-based platform offering personalized skin and hair logs for users to keep track of their routines.
 
 <h1>https://glow-up-app.herokuapp.com/</h1>
